@@ -2,7 +2,7 @@
 title: "Hermes provider chain ridisegnata 5-tier sub-OAuth (v1→v4) + Capture Protocol workdir fix + Step 2.5 SA legacy cleanup"
 date: "2026-05-25"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["hermes", "configuration", "automation", "troubleshooting", "api", "agent-sdk"]
 session_type: "openclaw"
 client: ""

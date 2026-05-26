@@ -1,0 +1,30 @@
+generated_at: "2026-05-26"
+docs:
+  - slug: "oauth-credential-separation"
+    title: "OAuth Credential Separation in Hermes"
+    category: "concepts"
+    tags: ["oauth", "credentials", "providers", "codex", "gemini"]
+    path: "docs/concepts/oauth-credential-separation.md"
+    last_updated: "2026-05-26"
+    hermes_version_min: "0.14.0"
+  - slug: "provider-chain-subscription-oauth"
+    title: "Build a Subscription-First Provider Chain"
+    category: "guides"
+    tags: ["providers", "oauth", "fallback", "configuration", "subscriptions"]
+    path: "docs/guides/provider-chain-subscription-oauth.md"
+    last_updated: "2026-05-26"
+    hermes_version_min: "0.14.0"
+  - slug: "provider-authentication"
+    title: "Provider Authentication Reference"
+    category: "reference"
+    tags: ["providers", "authentication", "configuration", "oauth", "api-keys"]
+    path: "docs/reference/provider-authentication.md"
+    last_updated: "2026-05-26"
+    hermes_version_min: "0.14.0"
+  - slug: "provider-and-gateway-errors"
+    title: "Provider and Gateway Errors"
+    category: "troubleshooting"
+    tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway"]
+    path: "docs/troubleshooting/provider-and-gateway-errors.md"
+    last_updated: "2026-05-26"
+    hermes_version_min: "0.14.0"

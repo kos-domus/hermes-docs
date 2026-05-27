@@ -2,7 +2,7 @@
 title: "Hermes MCP fleet propagation (5 profile) + Sentry OAuth setup 3 profile + Claude Code chrome-devtools/sentry MCP + HERMES_MCP_CONNECT_TIMEOUT patch"
 date: "2026-05-26"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["hermes", "mcp", "mcp-servers", "configuration", "automation", "api", "agent-sdk", "remote"]
 session_type: "hermes"
 client: ""

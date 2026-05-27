@@ -2,10 +2,12 @@
 title: "Provider and Gateway Errors"
 slug: "provider-and-gateway-errors"
 category: "troubleshooting"
-tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway"]
-sources: ["sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"]
-last_updated: "2026-05-26"
-version: 1
+tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway", "mcp"]
+sources:
+  - "sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"
+  - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
+last_updated: "2026-05-27"
+version: 2
 hermes_version_min: "0.14.0"
 ---
 
@@ -193,3 +195,10 @@ OPENROUTER_API_KEY exhausted (402) (17m 59s left)
 ```
 
 Hermes may mark exhausted providers with a cooldown. If the condition is temporary, let the cooldown expire. If it is persistent, fix the provider balance or move it lower in the fallback chain.
+
+## Related docs
+
+- [Provider authentication reference](../reference/provider-authentication.md)
+- [Provider chain guide](../guides/provider-chain-subscription-oauth.md)
+- [MCP errors troubleshooting](mcp-errors.md)
+- [OAuth credential separation](../concepts/oauth-credential-separation.md)

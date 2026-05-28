@@ -1,57 +1,158 @@
-generated_at: "2026-05-27"
+generated_at: '2026-05-28'
+project: hermes-docs
 docs:
-  - slug: "oauth-credential-separation"
-    title: "OAuth Credential Separation in Hermes"
-    category: "concepts"
-    tags: ["oauth", "credentials", "providers", "codex", "gemini", "mcp"]
-    path: "docs/concepts/oauth-credential-separation.md"
-    last_updated: "2026-05-27"
-    hermes_version_min: "0.14.0"
-
-  - slug: "provider-chain-subscription-oauth"
-    title: "Build a Subscription-First Provider Chain"
-    category: "guides"
-    tags: ["providers", "oauth", "fallback", "configuration", "subscriptions"]
-    path: "docs/guides/provider-chain-subscription-oauth.md"
-    last_updated: "2026-05-26"
-    hermes_version_min: "0.14.0"
-
-  - slug: "mcp-fleet-propagation"
-    title: "Propagate MCP Servers Across a Hermes Profile Fleet"
-    category: "guides"
-    tags: ["mcp", "mcp-servers", "fleet", "configuration", "oauth", "profiles"]
-    path: "docs/guides/mcp-fleet-propagation.md"
-    last_updated: "2026-05-27"
-    hermes_version_min: "0.14.0"
-
-  - slug: "provider-authentication"
-    title: "Provider Authentication Reference"
-    category: "reference"
-    tags: ["providers", "authentication", "configuration", "oauth", "api-keys"]
-    path: "docs/reference/provider-authentication.md"
-    last_updated: "2026-05-26"
-    hermes_version_min: "0.14.0"
-
-  - slug: "mcp-server-setup"
-    title: "MCP Server Setup Reference"
-    category: "reference"
-    tags: ["mcp", "mcp-servers", "configuration", "oauth", "cli", "reference"]
-    path: "docs/reference/mcp-server-setup.md"
-    last_updated: "2026-05-27"
-    hermes_version_min: "0.14.0"
-
-  - slug: "provider-and-gateway-errors"
-    title: "Provider and Gateway Errors"
-    category: "troubleshooting"
-    tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway", "mcp"]
-    path: "docs/troubleshooting/provider-and-gateway-errors.md"
-    last_updated: "2026-05-27"
-    hermes_version_min: "0.14.0"
-
-  - slug: "mcp-errors"
-    title: "MCP Server Errors"
-    category: "troubleshooting"
-    tags: ["mcp", "mcp-servers", "oauth", "troubleshooting", "timeout"]
-    path: "docs/troubleshooting/mcp-errors.md"
-    last_updated: "2026-05-27"
-    hermes_version_min: "0.14.0"
+- slug: oauth-credential-separation
+  title: OAuth Credential Separation in Hermes
+  category: concepts
+  tags:
+  - oauth
+  - credentials
+  - providers
+  - codex
+  - gemini
+  - mcp
+  path: docs/concepts/oauth-credential-separation.md
+  last_updated: '2026-05-27'
+  hermes_version_min: 0.14.0
+- slug: self-improvement-agent-safety
+  title: Self-Improvement Agent Safety
+  category: concepts
+  tags:
+  - self-improvement
+  - security
+  - profiles
+  - cron
+  - prompting
+  - skills
+  path: docs/concepts/self-improvement-agent-safety.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: skill-consolidation-pattern
+  title: Skill Consolidation Pattern
+  category: concepts
+  tags:
+  - skills
+  - prompting
+  - architecture
+  - agent-design
+  - maintenance
+  path: docs/concepts/skill-consolidation-pattern.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: elevenlabs-tts
+  title: Configure ElevenLabs TTS for a Hermes Profile
+  category: guides
+  tags:
+  - tts
+  - elevenlabs
+  - voice
+  - configuration
+  - telegram
+  - security
+  path: docs/guides/elevenlabs-tts.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: mcp-fleet-propagation
+  title: Propagate MCP Servers Across a Hermes Profile Fleet
+  category: guides
+  tags:
+  - mcp
+  - mcp-servers
+  - fleet
+  - configuration
+  - oauth
+  - profiles
+  path: docs/guides/mcp-fleet-propagation.md
+  last_updated: '2026-05-27'
+  hermes_version_min: 0.14.0
+- slug: provider-chain-subscription-oauth
+  title: Build a Subscription-First Provider Chain
+  category: guides
+  tags:
+  - providers
+  - oauth
+  - fallback
+  - configuration
+  - subscriptions
+  path: docs/guides/provider-chain-subscription-oauth.md
+  last_updated: '2026-05-26'
+  hermes_version_min: 0.14.0
+- slug: config-migration-v24
+  title: Config Migration v23 to v24
+  category: reference
+  tags:
+  - configuration
+  - migration
+  - profiles
+  - gateway
+  - dashboard
+  - mcp
+  path: docs/reference/config-migration-v24.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: mcp-server-setup
+  title: MCP Server Setup Reference
+  category: reference
+  tags:
+  - mcp
+  - mcp-servers
+  - configuration
+  - oauth
+  - cli
+  - reference
+  path: docs/reference/mcp-server-setup.md
+  last_updated: '2026-05-27'
+  hermes_version_min: 0.14.0
+- slug: provider-authentication
+  title: Provider Authentication Reference
+  category: reference
+  tags:
+  - providers
+  - authentication
+  - configuration
+  - oauth
+  - api-keys
+  path: docs/reference/provider-authentication.md
+  last_updated: '2026-05-26'
+  hermes_version_min: 0.14.0
+- slug: codex-gpt55-errors
+  title: Codex gpt-5.5 Errors
+  category: troubleshooting
+  tags:
+  - codex
+  - gpt-5.5
+  - providers
+  - fallback
+  - troubleshooting
+  - openai-codex
+  path: docs/troubleshooting/codex-gpt55-errors.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: mcp-errors
+  title: MCP Server Errors
+  category: troubleshooting
+  tags:
+  - mcp
+  - mcp-servers
+  - oauth
+  - troubleshooting
+  - timeout
+  path: docs/troubleshooting/mcp-errors.md
+  last_updated: '2026-05-27'
+  hermes_version_min: 0.14.0
+- slug: provider-and-gateway-errors
+  title: Provider and Gateway Errors
+  category: troubleshooting
+  tags:
+  - troubleshooting
+  - providers
+  - gemini
+  - openrouter
+  - zai
+  - systemd
+  - gateway
+  - mcp
+  - codex
+  path: docs/troubleshooting/provider-and-gateway-errors.md
+  last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0

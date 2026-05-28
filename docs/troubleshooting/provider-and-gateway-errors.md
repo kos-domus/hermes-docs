@@ -2,18 +2,29 @@
 title: "Provider and Gateway Errors"
 slug: "provider-and-gateway-errors"
 category: "troubleshooting"
-tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway", "mcp"]
+tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway", "mcp", "codex"]
 sources:
   - "sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"
   - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
-last_updated: "2026-05-27"
-version: 2
+  - "sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md"
+  - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
+last_updated: "2026-05-28"
+version: 3
 hermes_version_min: "0.14.0"
 ---
 
 # Provider and Gateway Errors
 
 This page collects exact errors and fixes from a Hermes runtime investigation involving scheduled jobs, provider fallback behavior, and profile gateway path resolution.
+
+## Codex `NoneType` stream crash and no-first-byte timeouts
+
+Codex `gpt-5.5` failures split into two patterns:
+
+- `TypeError: 'NoneType' object is not iterable` was fixed upstream by changing how Hermes consumes Codex response streams. Update Hermes and restart gateways.
+- `no first byte after 45s` can still occur intermittently when the ChatGPT Codex backend silently rejects or gates a request. Keep the fallback chain healthy.
+
+See [Codex gpt-5.5 Errors](codex-gpt55-errors.md) for the full diagnostic flow.
 
 ## `Gemini HTTP 400: Function call is missing a thought_signature`
 

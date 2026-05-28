@@ -2,7 +2,7 @@
 title: "MC capture skill consolidation + Codex Pattern A/B root cause + Master Prompt v2.0 specialist review (5x Pattern A)"
 date: "2026-05-27"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["configuration", "agent-sdk", "multi-agent", "automation", "security", "troubleshooting"]
 session_type: "hermes"
 client: ""

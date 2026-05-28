@@ -1,0 +1,8 @@
+.env
+.env.*
+*.env
+secrets.env
+*.secret
+*.key
+*token*
+!*.example

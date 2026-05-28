@@ -24,3 +24,12 @@ Log of every Kos elaboration run on this repository.
 - **Updated**: oauth-credential-separation — Added MCP OAuth section explaining per-profile token separation for MCP servers (same anti-rotation rationale as provider OAuth).
 - **Updated**: provider-and-gateway-errors — Added MCP tag and cross-links to new MCP troubleshooting docs.
 - **Sources**: sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md
+
+## 2026-05-28
+- **Added**: codex-gpt55-errors — Troubleshooting flow for Codex `gpt-5.5` `NoneType` stream crashes versus no-first-byte silent rejects.
+- **Added**: config-migration-v24 — Reference for Hermes config v23→v24 migration, moved sections, daemon restarts, and rollback.
+- **Added**: elevenlabs-tts — Guide for least-privilege ElevenLabs TTS setup, Italian voice discovery, and Telegram sample delivery.
+- **Added**: skill-consolidation-pattern — Concept doc for turning scattered workflow prompts into a single lazy-loaded skill source of truth.
+- **Added**: self-improvement-agent-safety — Concept doc for safely designing a self-improvement Hermes profile with deterministic gates.
+- **Updated**: provider-and-gateway-errors — Added Codex error routing and cross-link to the dedicated Codex troubleshooting page.
+- **Sources**: sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md, sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md

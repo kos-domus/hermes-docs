@@ -2,7 +2,7 @@
 title: "Hermes upstream pull 105 commit (Codex NoneType fix) + config v23→v24 migrate 7 profile + ElevenLabs Cornelia TTS setup"
 date: "2026-05-27"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["configuration", "troubleshooting", "automation", "api", "security"]
 session_type: "hermes"
 client: ""

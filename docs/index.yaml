@@ -1,4 +1,4 @@
-generated_at: '2026-05-28'
+generated_at: '2026-06-02'
 project: hermes-docs
 docs:
 - slug: oauth-credential-separation
@@ -24,8 +24,9 @@ docs:
   - cron
   - prompting
   - skills
+  - scripts
   path: docs/concepts/self-improvement-agent-safety.md
-  last_updated: '2026-05-28'
+  last_updated: '2026-06-02'
   hermes_version_min: 0.14.0
 - slug: skill-consolidation-pattern
   title: Skill Consolidation Pattern
@@ -38,6 +39,19 @@ docs:
   - maintenance
   path: docs/concepts/skill-consolidation-pattern.md
   last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: cron-script-wrapper-pattern
+  title: Cron Script Wrapper Pattern
+  category: guides
+  tags:
+  - cron
+  - scripts
+  - wrappers
+  - profiles
+  - scheduling
+  - security
+  path: docs/guides/cron-script-wrapper-pattern.md
+  last_updated: '2026-06-02'
   hermes_version_min: 0.14.0
 - slug: elevenlabs-tts
   title: Configure ElevenLabs TTS for a Hermes Profile
@@ -90,6 +104,19 @@ docs:
   path: docs/reference/config-migration-v24.md
   last_updated: '2026-05-28'
   hermes_version_min: 0.14.0
+- slug: cron-script-execution
+  title: Cron Script Execution Reference
+  category: reference
+  tags:
+  - cron
+  - scripts
+  - profiles
+  - scheduling
+  - security
+  - configuration
+  path: docs/reference/cron-script-execution.md
+  last_updated: '2026-06-02'
+  hermes_version_min: 0.14.0
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference
@@ -127,6 +154,19 @@ docs:
   - openai-codex
   path: docs/troubleshooting/codex-gpt55-errors.md
   last_updated: '2026-05-28'
+  hermes_version_min: 0.14.0
+- slug: cron-script-errors
+  title: Cron Script Errors
+  category: troubleshooting
+  tags:
+  - cron
+  - scripts
+  - troubleshooting
+  - profiles
+  - scheduling
+  - security
+  path: docs/troubleshooting/cron-script-errors.md
+  last_updated: '2026-06-02'
   hermes_version_min: 0.14.0
 - slug: mcp-errors
   title: MCP Server Errors

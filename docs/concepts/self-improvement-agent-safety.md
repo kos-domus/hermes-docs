@@ -2,11 +2,12 @@
 title: "Self-Improvement Agent Safety"
 slug: "self-improvement-agent-safety"
 category: "concepts"
-tags: ["self-improvement", "security", "profiles", "cron", "prompting", "skills"]
+tags: ["self-improvement", "security", "profiles", "cron", "prompting", "skills", "scripts"]
 sources:
   - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
-last_updated: "2026-05-28"
-version: 1
+  - "sessions/2026-06-01-cron-script-containment-fix.md"
+last_updated: "2026-06-02"
+version: 2
 hermes_version_min: "0.14.0"
 ---
 
@@ -123,6 +124,17 @@ Daily review without input creates noise. Prefer metric-triggered or weekly revi
 - stale skills
 - broken links
 - failed validation commands
+
+### 8. Cron script containment
+
+Script-based maintenance jobs should keep their declared Hermes entrypoint inside the profile's local `scripts/` directory. If a self-improvement profile needs to run a canonical script maintained elsewhere, use a short real wrapper file inside containment that `exec`s the canonical script.
+
+This avoids two unsafe extremes:
+
+- symlink escapes that Hermes can block with `Blocked: script path resolves outside the scripts directory`;
+- copied script bodies that drift silently across profiles.
+
+See [Cron Script Wrapper Pattern](../guides/cron-script-wrapper-pattern.md) and [Cron Script Execution Reference](../reference/cron-script-execution.md).
 
 ## Anti-patterns
 

@@ -2,7 +2,7 @@
 title: "Fix cron Hermes script-not-found: containment scripts/ + pattern wrapper exec (profilo cron-only)"
 date: "2026-06-01"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["cron", "scheduling", "automation", "troubleshooting", "security", "configuration"]
 session_type: "openclaw"
 openclaw_version: ""

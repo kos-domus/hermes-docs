@@ -33,3 +33,10 @@ Log of every Kos elaboration run on this repository.
 - **Added**: self-improvement-agent-safety — Concept doc for safely designing a self-improvement Hermes profile with deterministic gates.
 - **Updated**: provider-and-gateway-errors — Added Codex error routing and cross-link to the dedicated Codex troubleshooting page.
 - **Sources**: sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md, sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md
+
+## 2026-06-02
+- **Added**: cron-script-execution — Reference for profile-local cron script resolution, containment, wrapper execution, and immediate test commands.
+- **Added**: cron-script-wrapper-pattern — Guide for using real profile-local wrapper files that exec external canonical scripts without copy drift.
+- **Added**: cron-script-errors — Troubleshooting page for `Script not found` and `Blocked: script path resolves outside the scripts directory`.
+- **Updated**: self-improvement-agent-safety — Added cron script containment as a self-improvement profile safety control.
+- **Sources**: sessions/2026-06-01-cron-script-containment-fix.md

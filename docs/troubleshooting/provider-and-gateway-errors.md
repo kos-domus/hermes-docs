@@ -8,8 +8,9 @@ sources:
   - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
   - "sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md"
   - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
-last_updated: "2026-05-28"
-version: 3
+  - "sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md"
+last_updated: "2026-06-05"
+version: 4
 hermes_version_min: "0.14.0"
 ---
 
@@ -207,9 +208,26 @@ OPENROUTER_API_KEY exhausted (402) (17m 59s left)
 
 Hermes may mark exhausted providers with a cooldown. If the condition is temporary, let the cooldown expire. If it is persistent, fix the provider balance or move it lower in the fallback chain.
 
+## `hermes login` removed
+
+`hermes login` is no longer a command (the help text may still mention it). Use:
+
+```bash
+hermes auth add <provider> --type oauth
+```
+
+For OAuth flows that have gone sideways (state mismatch, abandoned mid-flow), reset before retrying:
+
+```bash
+hermes auth reset <provider>
+```
+
+For xAI OAuth on a remote SSH session specifically — loopback callback handling, SSH tunnel, `--manual-paste` with the full URL — see [xAI OAuth on Remote SSH Sessions](xai-oauth-remote-session.md).
+
 ## Related docs
 
 - [Provider authentication reference](../reference/provider-authentication.md)
 - [Provider chain guide](../guides/provider-chain-subscription-oauth.md)
 - [MCP errors troubleshooting](mcp-errors.md)
 - [OAuth credential separation](../concepts/oauth-credential-separation.md)
+- [xAI OAuth on Remote SSH Sessions](xai-oauth-remote-session.md)

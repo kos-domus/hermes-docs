@@ -40,3 +40,11 @@ Log of every Kos elaboration run on this repository.
 - **Added**: cron-script-errors — Troubleshooting page for `Script not found` and `Blocked: script path resolves outside the scripts directory`.
 - **Updated**: self-improvement-agent-safety — Added cron script containment as a self-improvement profile safety control.
 - **Sources**: sessions/2026-06-01-cron-script-containment-fix.md
+
+## 2026-06-05
+- **Added**: fleet-learner-architecture — Concept doc for the Fleet Learner pattern: 3-layer memory model, targeted-edit operations, Temporal-Truth rules, ADD-only vs targeted-edit by layer, cross-layer dedup, forward-looking yield.
+- **Added**: capability-matrix-allowlist — Guide for data-not-prosa read derogations: 0444 deploy-only YAML allowlist, deny-glob patterns, MCP sandbox parity, re-baseline flow, partial read enforcement caveats.
+- **Added**: xai-oauth-remote-session — Troubleshooting for xAI OAuth over SSH: SSH tunnel flow, `--manual-paste` with full callback URL, `hermes auth reset` for state mismatch, `hermes proxy` scope note.
+- **Updated**: self-improvement-agent-safety — Added Fleet Learner mode section, CSO tiered gating (Tier-1/2/3), capability-matrix cross-link, MCP filesystem sandbox narrowing, bearer-at-rest in `request_dump_*.json`, re-baseline flow, partial enforcement note.
+- **Updated**: provider-and-gateway-errors — Added `hermes login` deprecation note + cross-link to new xAI OAuth troubleshooting page.
+- **Sources**: sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md

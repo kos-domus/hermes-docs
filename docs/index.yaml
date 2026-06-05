@@ -1,6 +1,25 @@
-generated_at: '2026-06-02'
-project: hermes-docs
+generated_at: '2026-06-05'
+doc_count: 18
+categories:
+- getting-started
+- guides
+- reference
+- concepts
+- troubleshooting
 docs:
+- slug: fleet-learner-architecture
+  title: Fleet Learner Architecture
+  category: concepts
+  tags:
+  - self-improvement
+  - multi-agent
+  - memory
+  - skills
+  - concepts
+  path: docs/concepts/fleet-learner-architecture.md
+  last_updated: '2026-06-05'
+  version: 1
+  hermes_version_min: 0.14.0
 - slug: oauth-credential-separation
   title: OAuth Credential Separation in Hermes
   category: concepts
@@ -13,6 +32,7 @@ docs:
   - mcp
   path: docs/concepts/oauth-credential-separation.md
   last_updated: '2026-05-27'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: self-improvement-agent-safety
   title: Self-Improvement Agent Safety
@@ -25,8 +45,11 @@ docs:
   - prompting
   - skills
   - scripts
+  - mcp
+  - memory
   path: docs/concepts/self-improvement-agent-safety.md
-  last_updated: '2026-06-02'
+  last_updated: '2026-06-05'
+  version: 3
   hermes_version_min: 0.14.0
 - slug: skill-consolidation-pattern
   title: Skill Consolidation Pattern
@@ -39,6 +62,20 @@ docs:
   - maintenance
   path: docs/concepts/skill-consolidation-pattern.md
   last_updated: '2026-05-28'
+  version: 1
+  hermes_version_min: 0.14.0
+- slug: capability-matrix-allowlist
+  title: Capability Matrix Allowlist (Data-Not-Prosa Derogations)
+  category: guides
+  tags:
+  - security
+  - profiles
+  - self-improvement
+  - configuration
+  - mcp
+  path: docs/guides/capability-matrix-allowlist.md
+  last_updated: '2026-06-05'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: cron-script-wrapper-pattern
   title: Cron Script Wrapper Pattern
@@ -52,6 +89,7 @@ docs:
   - security
   path: docs/guides/cron-script-wrapper-pattern.md
   last_updated: '2026-06-02'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: elevenlabs-tts
   title: Configure ElevenLabs TTS for a Hermes Profile
@@ -65,6 +103,7 @@ docs:
   - security
   path: docs/guides/elevenlabs-tts.md
   last_updated: '2026-05-28'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: mcp-fleet-propagation
   title: Propagate MCP Servers Across a Hermes Profile Fleet
@@ -78,6 +117,7 @@ docs:
   - profiles
   path: docs/guides/mcp-fleet-propagation.md
   last_updated: '2026-05-27'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: provider-chain-subscription-oauth
   title: Build a Subscription-First Provider Chain
@@ -90,6 +130,7 @@ docs:
   - subscriptions
   path: docs/guides/provider-chain-subscription-oauth.md
   last_updated: '2026-05-26'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: config-migration-v24
   title: Config Migration v23 to v24
@@ -103,6 +144,7 @@ docs:
   - mcp
   path: docs/reference/config-migration-v24.md
   last_updated: '2026-05-28'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: cron-script-execution
   title: Cron Script Execution Reference
@@ -116,6 +158,7 @@ docs:
   - configuration
   path: docs/reference/cron-script-execution.md
   last_updated: '2026-06-02'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
@@ -129,6 +172,7 @@ docs:
   - reference
   path: docs/reference/mcp-server-setup.md
   last_updated: '2026-05-27'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: provider-authentication
   title: Provider Authentication Reference
@@ -141,6 +185,7 @@ docs:
   - api-keys
   path: docs/reference/provider-authentication.md
   last_updated: '2026-05-26'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: codex-gpt55-errors
   title: Codex gpt-5.5 Errors
@@ -154,6 +199,7 @@ docs:
   - openai-codex
   path: docs/troubleshooting/codex-gpt55-errors.md
   last_updated: '2026-05-28'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: cron-script-errors
   title: Cron Script Errors
@@ -167,6 +213,7 @@ docs:
   - security
   path: docs/troubleshooting/cron-script-errors.md
   last_updated: '2026-06-02'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: mcp-errors
   title: MCP Server Errors
@@ -179,6 +226,7 @@ docs:
   - timeout
   path: docs/troubleshooting/mcp-errors.md
   last_updated: '2026-05-27'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: provider-and-gateway-errors
   title: Provider and Gateway Errors
@@ -194,5 +242,20 @@ docs:
   - mcp
   - codex
   path: docs/troubleshooting/provider-and-gateway-errors.md
-  last_updated: '2026-05-28'
+  last_updated: '2026-06-05'
+  version: 4
+  hermes_version_min: 0.14.0
+- slug: xai-oauth-remote-session
+  title: xAI OAuth on Remote SSH Sessions
+  category: troubleshooting
+  tags:
+  - troubleshooting
+  - providers
+  - xai
+  - oauth
+  - ssh
+  - remote
+  path: docs/troubleshooting/xai-oauth-remote-session.md
+  last_updated: '2026-06-05'
+  version: 1
   hermes_version_min: 0.14.0

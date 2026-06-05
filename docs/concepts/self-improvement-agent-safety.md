@@ -2,12 +2,13 @@
 title: "Self-Improvement Agent Safety"
 slug: "self-improvement-agent-safety"
 category: "concepts"
-tags: ["self-improvement", "security", "profiles", "cron", "prompting", "skills", "scripts"]
+tags: ["self-improvement", "security", "profiles", "cron", "prompting", "skills", "scripts", "mcp", "memory"]
 sources:
   - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
   - "sessions/2026-06-01-cron-script-containment-fix.md"
-last_updated: "2026-06-02"
-version: 2
+  - "sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md"
+last_updated: "2026-06-05"
+version: 3
 hermes_version_min: "0.14.0"
 ---
 
@@ -135,6 +136,62 @@ This avoids two unsafe extremes:
 - copied script bodies that drift silently across profiles.
 
 See [Cron Script Wrapper Pattern](../guides/cron-script-wrapper-pattern.md) and [Cron Script Execution Reference](../reference/cron-script-execution.md).
+
+## Fleet Learner mode
+
+The profile does not have to learn only from its own sessions. A more powerful pattern is **Fleet Learner mode**, in which a self-improvement profile reads the public session corpus of *another* profile and proposes targeted edits to that profile's procedural memory (`SOUL.md`, `procedures/`, `skills/`).
+
+This pattern separates the **learning role** from the **generation role**, which is the only way to get an outside-in signal on a working agent's prompt. See [Fleet Learner Architecture](fleet-learner-architecture.md) for the three-layer memory model and the targeted-edit operations.
+
+### CSO tiered gating
+
+Not all corpora are safe to learn from. A three-tier model works in practice:
+
+| Tier | Corpus | Verdict | Prerequisites |
+|---|---|---|---|
+| Tier 1 | Public procedural root of another profile | **GO** with capability matrix + sandbox hygiene + advisory shadow | Allowlist + 0444 matrix + gitleaks + advisory mode |
+| Tier 2 | Private/client folders | **HOLD** | Hard read-gate (PreToolUse hook + audit log), per-client allowlist, output segregation, denylist |
+| Tier 3 | Family/personal corpus | **HOLD** | Same as Tier 2, plus explicit user sign-off on every patch |
+
+Tier-1 is the only tier that can be enabled without a hard read-gate. The reason is blast radius: Tier-1 reads only procedural files the operator has already chosen to make public, and a misread produces a noisy patch that gets caught at review. Tier-2/3 read sensitive context where a misread is itself a leak.
+
+### Capability matrix as data, not prose
+
+The allowlist of paths the Learner may read should be a YAML file at `state/capability-matrix.yaml` chmod `0444`, hashed as an immutable section. The agent cannot widen it without a deploy step. The SOUL keeps a pointer to the matrix, not a duplicate of its rules.
+
+See [Capability Matrix Allowlist](../guides/capability-matrix-allowlist.md) for the file format and re-baseline flow.
+
+### MCP filesystem sandbox narrowing
+
+The `filesystem` MCP server's `allowedDirectories` is a hard sandbox the LLM cannot widen. Keep it at parity with the capability matrix `read_roots`. A common drift is starting with `allowedDirectories: ["~/job-desk"]` and forgetting that this includes every client folder onboarded since.
+
+Enumerate allowed directories explicitly. Do not use a single broad root.
+
+### Bearer tokens at rest in `request_dump_*.json`
+
+Hermes can dump failed request bodies to `request_dump_*.json` when `max_retries_exhausted` fires. These dumps can contain the `Authorization` header verbatim — a bearer token at rest. Always add to `read_deny`:
+
+```yaml
+read_deny:
+  - "**/request_dump_*.json"
+```
+
+The deeper fix is to scrub and rotate the token; the deny-glob is defense-in-depth while that ticket is open.
+
+### Re-baseline immutable sections after a legitimate edit
+
+When the operator legitimately edits the capability matrix or another immutable section:
+
+```bash
+immutable-check.sh --profile hermes-selfimprove --init --force
+immutable-check.sh --profile hermes-selfimprove --verify
+```
+
+`--init --force` rewrites the baseline; `--verify` reports green only if *other* sections are unchanged. Two sections changing when you intended one is the signal to abort.
+
+### Partial read enforcement
+
+As of 0.14.x, the capability matrix is **instruction-enforced** for native tools (`read_file`, `read_text_file`) and **mechanically enforced** for the `filesystem` MCP server. There is no `PreToolUse` hook that hard-checks the matrix against native reads yet. This makes the matrix sufficient for Tier-1 (low-blast-radius public corpus) and insufficient for Tier-2/3 (sensitive corpus), where the hard read-gate is a prerequisite.
 
 ## Anti-patterns
 

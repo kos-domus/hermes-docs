@@ -1,18 +1,23 @@
 ---
-title: "Fleet outage triage: Codex-401 cascade, gws mc re-auth, fallback-non-cattura-auth-error"
-date: "2026-06-09"
-author: "kos-domus"
-status: "ready"
-tags: ["troubleshooting", "configuration", "automation", "cron", "security", "cli"]
-session_type: "hermes"
-client: ""
-openclaw_version: ""
+title: 'Fleet outage triage: Codex-401 cascade, gws mc re-auth, fallback-non-cattura-auth-error'
+date: '2026-06-09'
+author: kos-domus
+status: processed
+tags:
+- troubleshooting
+- configuration
+- automation
+- cron
+- security
+- cli
+session_type: hermes
+client: ''
+openclaw_version: ''
 environment:
-  os: "Linux (mini-PC kos-domus)"
-  ide: "VSCode + Claude Code"
-  model: "claude-opus-4-8[1m]"
+  os: Linux (mini-PC kos-domus)
+  ide: VSCode + Claude Code
+  model: claude-opus-4-8[1m]
 ---
-
 ## Objective
 Triage dell'outage del work fleet (profile `mc` + specialisti): il wrap serale MC riportava "🔴 OUTAGE DAY —
 zero scheduled work completed", tutti i 6 cron window falliti. Capire la causa-radice e ripristinare.

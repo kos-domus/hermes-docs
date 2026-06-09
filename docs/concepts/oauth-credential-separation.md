@@ -1,16 +1,24 @@
 ---
-title: "OAuth Credential Separation in Hermes"
-slug: "oauth-credential-separation"
-category: "concepts"
-tags: ["oauth", "credentials", "providers", "codex", "gemini", "mcp"]
+title: OAuth Credential Separation in Hermes
+slug: oauth-credential-separation
+category: concepts
+tags:
+- oauth
+- credentials
+- providers
+- codex
+- gemini
+- mcp
+- profiles
+- gws
 sources:
-  - "sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"
-  - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
-last_updated: "2026-05-27"
-version: 2
-hermes_version_min: "0.14.0"
+- sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md
+- sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md
+- sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
+last_updated: '2026-06-09'
+version: 3
+hermes_version_min: 0.14.0
 ---
-
 # OAuth Credential Separation in Hermes
 
 Hermes intentionally keeps provider OAuth sessions separate from adjacent CLI tools such as Codex CLI, Gemini CLI, and editor extensions.
@@ -100,6 +108,32 @@ hermes -p frontend mcp login sentry
 
 The anti-rotation rationale is identical to provider OAuth: if profiles shared a token file, one profile's refresh could invalidate another's session. The source code in `credential_sources.py` explicitly documents this as preventing "refresh token rotation conflicts where one app's refresh invalidates the other's session."
 
+## Profile HOME overrides and external CLI credentials
+
+Named Hermes profiles can run automation with a profile-local HOME, for example:
+
+```text
+~/.hermes/profiles/<profile>/home
+```
+
+External CLIs launched from that profile inherit the same separation. For Google Workspace CLI, a profile HOME may contain:
+
+```text
+client_secret.json
+.encryption_key
+credentials.enc
+```
+
+`credentials.enc` is encrypted by the `.encryption_key` in that HOME. Do not copy `credentials.enc` from the default HOME into a profile HOME. Re-authenticate in place instead:
+
+```bash
+HOME=$HOME/.hermes/profiles/<profile>/home \
+GOOGLE_WORKSPACE_CLI_KEYRING_BACKEND=file \
+gws auth login
+```
+
+This is the same operational principle as Hermes provider and MCP OAuth: credential files are scoped to the runtime that owns their refresh and encryption context.
+
 ## Security rule
 
 Store secrets in environment variables or Hermes credential storage, not in repository files.
@@ -111,3 +145,4 @@ Public docs may name provider keys such as `ZAI_API_KEY` or `GEMINI_API_KEY`, bu
 - [MCP server setup reference](../reference/mcp-server-setup.md)
 - [MCP fleet propagation guide](../guides/mcp-fleet-propagation.md)
 - [Provider authentication reference](../reference/provider-authentication.md)
+- [Profile-scoped Google Workspace credentials](../troubleshooting/gws-profile-credentials.md)

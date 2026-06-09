@@ -1,14 +1,20 @@
 ---
-title: "Build a Subscription-First Provider Chain"
-slug: "provider-chain-subscription-oauth"
-category: "guides"
-tags: ["providers", "oauth", "fallback", "configuration", "subscriptions"]
-sources: ["sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"]
-last_updated: "2026-05-26"
-version: 1
-hermes_version_min: "0.14.0"
+title: Build a Subscription-First Provider Chain
+slug: provider-chain-subscription-oauth
+category: guides
+tags:
+- providers
+- oauth
+- fallback
+- configuration
+- subscriptions
+sources:
+- sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md
+- sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
+last_updated: '2026-06-09'
+version: 2
+hermes_version_min: 0.14.0
 ---
-
 # Build a Subscription-First Provider Chain
 
 This guide describes a practical Hermes provider chain that prefers paid subscription-backed OAuth providers before falling back to API-key or free endpoints.
@@ -129,6 +135,7 @@ hermes -p mc chat -q 'Reply with PONG_MC only.'
 - API subscriptions and chat subscriptions are not the same thing. ChatGPT Pro, Gemini Advanced, Claude Code, and Z.AI Coding Pro do not automatically grant normal REST API access.
 - Hermes needs a provider-specific OAuth wrapper to use subscription-backed CLI access.
 - OAuth access tokens expire; Hermes should refresh them transparently, but monitor the first natural expiry after setup.
+- Authentication errors are different from rate limits. In Hermes Agent `0.14.0`, an `openai-codex` `HTTP 401 token_expired` was observed to retry the primary instead of cleanly falling through the fallback chain. Keep a direct auth-pool check (`hermes auth list`) in your scheduled-job diagnostics.
 - When applying the chain across profiles, restart relevant gateway/systemd services after config changes.
 
 ## Related docs

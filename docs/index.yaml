@@ -1,5 +1,5 @@
-generated_at: '2026-06-05'
-doc_count: 18
+generated_at: '2026-06-09'
+doc_count: 19
 categories:
 - getting-started
 - guides
@@ -30,9 +30,11 @@ docs:
   - codex
   - gemini
   - mcp
+  - profiles
+  - gws
   path: docs/concepts/oauth-credential-separation.md
-  last_updated: '2026-05-27'
-  version: 2
+  last_updated: '2026-06-09'
+  version: 3
   hermes_version_min: 0.14.0
 - slug: self-improvement-agent-safety
   title: Self-Improvement Agent Safety
@@ -129,8 +131,8 @@ docs:
   - configuration
   - subscriptions
   path: docs/guides/provider-chain-subscription-oauth.md
-  last_updated: '2026-05-26'
-  version: 1
+  last_updated: '2026-06-09'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: config-migration-v24
   title: Config Migration v23 to v24
@@ -184,8 +186,8 @@ docs:
   - oauth
   - api-keys
   path: docs/reference/provider-authentication.md
-  last_updated: '2026-05-26'
-  version: 1
+  last_updated: '2026-06-09'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: codex-gpt55-errors
   title: Codex gpt-5.5 Errors
@@ -198,8 +200,8 @@ docs:
   - troubleshooting
   - openai-codex
   path: docs/troubleshooting/codex-gpt55-errors.md
-  last_updated: '2026-05-28'
-  version: 1
+  last_updated: '2026-06-09'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: cron-script-errors
   title: Cron Script Errors
@@ -213,6 +215,21 @@ docs:
   - security
   path: docs/troubleshooting/cron-script-errors.md
   last_updated: '2026-06-02'
+  version: 1
+  hermes_version_min: 0.14.0
+- slug: gws-profile-credentials
+  title: Profile-scoped Google Workspace Credentials
+  category: troubleshooting
+  tags:
+  - troubleshooting
+  - gws
+  - google-workspace
+  - profiles
+  - oauth
+  - credentials
+  - cron
+  path: docs/troubleshooting/gws-profile-credentials.md
+  last_updated: '2026-06-09'
   version: 1
   hermes_version_min: 0.14.0
 - slug: mcp-errors
@@ -242,8 +259,8 @@ docs:
   - mcp
   - codex
   path: docs/troubleshooting/provider-and-gateway-errors.md
-  last_updated: '2026-06-05'
-  version: 4
+  last_updated: '2026-06-09'
+  version: 5
   hermes_version_min: 0.14.0
 - slug: xai-oauth-remote-session
   title: xAI OAuth on Remote SSH Sessions

@@ -48,3 +48,12 @@ Log of every Kos elaboration run on this repository.
 - **Updated**: self-improvement-agent-safety — Added Fleet Learner mode section, CSO tiered gating (Tier-1/2/3), capability-matrix cross-link, MCP filesystem sandbox narrowing, bearer-at-rest in `request_dump_*.json`, re-baseline flow, partial enforcement note.
 - **Updated**: provider-and-gateway-errors — Added `hermes login` deprecation note + cross-link to new xAI OAuth troubleshooting page.
 - **Sources**: sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md
+## 2026-06-09
+- **Added**: gws-profile-credentials — Troubleshooting flow for profile-local Google Workspace CLI credentials, `credentials.enc`, and HOME-scoped re-authentication.
+- **Updated**: codex-gpt55-errors — Added the `HTTP 401 token_expired` Codex outage pattern and auth-error non-fallback mitigation.
+- **Updated**: provider-authentication — Added credential-pool inspection with `hermes auth list`, reset guidance, and auth-error fallback notes.
+- **Updated**: provider-and-gateway-errors — Added Codex 401 cascade and profile HOME Google Workspace credential errors.
+- **Updated**: oauth-credential-separation — Added external CLI credential separation for profile HOME overrides.
+- **Updated**: provider-chain-subscription-oauth — Added operational warning that auth errors may not trigger fallback in Hermes Agent 0.14.0.
+- **Sources**: sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
+

@@ -1,14 +1,20 @@
 ---
-title: "Provider Authentication Reference"
-slug: "provider-authentication"
-category: "reference"
-tags: ["providers", "authentication", "configuration", "oauth", "api-keys"]
-sources: ["sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"]
-last_updated: "2026-05-26"
-version: 1
-hermes_version_min: "0.14.0"
+title: Provider Authentication Reference
+slug: provider-authentication
+category: reference
+tags:
+- providers
+- authentication
+- configuration
+- oauth
+- api-keys
+sources:
+- sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md
+- sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
+last_updated: '2026-06-09'
+version: 2
+hermes_version_min: 0.14.0
 ---
-
 # Provider Authentication Reference
 
 This reference summarizes provider names, authentication modes, endpoints, and observed edge cases from the source session.
@@ -17,7 +23,7 @@ This reference summarizes provider names, authentication modes, endpoints, and o
 
 | Provider name | Auth mode | Endpoint / backend | Notes |
 |---|---:|---|---|
-| `openai-codex` | OAuth | Codex/OpenAI subscription path | Requires `hermes auth add openai-codex --type oauth`; separate from Codex CLI login. |
+| `openai-codex` | OAuth | Codex/OpenAI subscription path | Requires `hermes auth add openai-codex --type oauth`; separate from Codex CLI login. Inspect with `hermes auth list` when cron jobs report `HTTP 401 token_expired`. |
 | `google-gemini-cli` | OAuth | `cloudcode-pa://google` / Cloud Code backend | Distinct from the `gemini` API-key provider. |
 | `gemini` | API key | `generativelanguage.googleapis.com` | Uses `GEMINI_API_KEY`; Gemini 3.x produced a `thought_signature` error in the source session. |
 | `zai-coding` | API key | `https://api.z.ai/api/coding/paas/v4` | User-defined provider for Z.AI Coding Pro subscription. |
@@ -67,6 +73,26 @@ hermes auth add google-gemini-cli --type oauth --no-browser --manual-paste
 
 Older instructions may mention `hermes login`. In current Hermes versions represented by this repository baseline, use `hermes auth add`.
 
+## Credential pool inspection
+
+High-level profile status can report a provider as logged in while individual credentials in the provider pool are stale, expired, or exhausted. When debugging scheduled jobs, inspect the auth pool directly:
+
+```bash
+hermes auth list
+hermes auth status openai-codex
+```
+
+Use `hermes status` for the broad runtime view, but treat `hermes auth list` as the more authoritative view for provider credential state.
+
+If an OAuth provider is stuck after an interrupted login or repeated auth failures:
+
+```bash
+hermes auth reset <provider>
+hermes auth add <provider> --type oauth --no-browser --manual-paste
+```
+
+`hermes login` was removed in Hermes Agent `0.14.0`; use `hermes auth add` instead.
+
 ## Inspect configured fallbacks
 
 ```bash
@@ -88,3 +114,8 @@ When running multiple Hermes profiles, keep provider configuration aligned acros
 ```
 
 Restart the relevant gateway services after editing profile configs.
+
+Operational notes:
+
+- OAuth access tokens can expire inside long-running gateway or cron contexts. If the primary provider returns an auth error, verify whether the fallback chain actually fired; Hermes `0.14.0` was observed not to fail over on `401 token_expired`.
+- Add provider credentials per active runtime profile when provider state is profile-scoped. Do not copy encrypted credential files between profile homes.

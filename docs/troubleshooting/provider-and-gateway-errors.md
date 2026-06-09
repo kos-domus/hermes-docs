@@ -1,19 +1,28 @@
 ---
-title: "Provider and Gateway Errors"
-slug: "provider-and-gateway-errors"
-category: "troubleshooting"
-tags: ["troubleshooting", "providers", "gemini", "openrouter", "zai", "systemd", "gateway", "mcp", "codex"]
+title: Provider and Gateway Errors
+slug: provider-and-gateway-errors
+category: troubleshooting
+tags:
+- troubleshooting
+- providers
+- gemini
+- openrouter
+- zai
+- systemd
+- gateway
+- mcp
+- codex
 sources:
-  - "sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md"
-  - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
-  - "sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md"
-  - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
-  - "sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md"
-last_updated: "2026-06-05"
-version: 4
-hermes_version_min: "0.14.0"
+- sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md
+- sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md
+- sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md
+- sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md
+- sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md
+- sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
+last_updated: '2026-06-09'
+version: 5
+hermes_version_min: 0.14.0
 ---
-
 # Provider and Gateway Errors
 
 This page collects exact errors and fixes from a Hermes runtime investigation involving scheduled jobs, provider fallback behavior, and profile gateway path resolution.
@@ -26,6 +35,38 @@ Codex `gpt-5.5` failures split into two patterns:
 - `no first byte after 45s` can still occur intermittently when the ChatGPT Codex backend silently rejects or gates a request. Keep the fallback chain healthy.
 
 See [Codex gpt-5.5 Errors](codex-gpt55-errors.md) for the full diagnostic flow.
+
+## Codex `HTTP 401 token_expired` does not fail over
+
+Exact observed errors:
+
+```text
+HTTP 401 token_expired
+Fallback to google-gemini-cli failed: provider not configured
+```
+
+### Cause
+
+The primary `openai-codex` OAuth access token expired and refresh failed in a scheduled runtime context. In Hermes Agent `0.14.0`, auth errors such as `401` were not observed to trigger fallback; fallback handled rate limits, overload, and connection failures instead.
+
+This can create a cascade: every scheduled job retries the primary provider, while downstream delivery or upload errors look like independent failures. Verify the provider outage first before treating every secondary error as a separate root cause.
+
+### Fix
+
+```bash
+hermes auth list
+hermes auth status openai-codex
+hermes auth add openai-codex --type oauth --no-browser --manual-paste
+```
+
+If the OAuth state is stuck, reset and retry:
+
+```bash
+hermes auth reset openai-codex
+hermes auth add openai-codex --type oauth --no-browser --manual-paste
+```
+
+See [Codex gpt-5.5 Errors](codex-gpt55-errors.md) for the full Pattern C flow.
 
 ## `Gemini HTTP 400: Function call is missing a thought_signature`
 
@@ -178,6 +219,38 @@ Use absolute paths in profile instructions for procedure files:
 ```
 
 Add an explicit comment in the profile instructions so future edits do not reintroduce relative paths.
+
+## `Drive auth failed: No credentials found` in a profile HOME
+
+Exact observed error:
+
+```text
+Drive auth failed: No credentials found
+```
+
+### Cause
+
+A scheduled job ran under a named Hermes profile with a `HOME` override such as:
+
+```text
+~/.hermes/profiles/<profile>/home
+```
+
+The external Google Workspace CLI had its `client_secret.json` and `.encryption_key` in that HOME, but no `credentials.enc`. Because `credentials.enc` is encrypted with the profile-local `.encryption_key`, copying it from another HOME is unsafe and usually invalid.
+
+### Fix
+
+Re-authenticate the Google Workspace CLI while pointing `HOME` at the profile home:
+
+```bash
+HOME=$HOME/.hermes/profiles/<profile>/home \
+GOOGLE_WORKSPACE_CLI_KEYRING_BACKEND=file \
+gws auth login
+```
+
+Then verify that the generated credential is valid with the Google Workspace CLI's normal auth/status command for your installation.
+
+See [Profile-scoped Google Workspace credentials](gws-profile-credentials.md).
 
 ## `hermes -z` with `--base-url`
 

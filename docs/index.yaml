@@ -1,5 +1,5 @@
-generated_at: '2026-06-09'
-doc_count: 19
+generated_at: '2026-06-10'
+doc_count: 22
 categories:
 - getting-started
 - guides
@@ -7,65 +7,20 @@ categories:
 - concepts
 - troubleshooting
 docs:
-- slug: fleet-learner-architecture
-  title: Fleet Learner Architecture
-  category: concepts
+- slug: quick-setup-nous-portal
+  title: Quick Setup via Nous Portal
+  category: getting-started
   tags:
-  - self-improvement
-  - multi-agent
-  - memory
-  - skills
-  - concepts
-  path: docs/concepts/fleet-learner-architecture.md
-  last_updated: '2026-06-05'
-  version: 1
-  hermes_version_min: 0.14.0
-- slug: oauth-credential-separation
-  title: OAuth Credential Separation in Hermes
-  category: concepts
-  tags:
-  - oauth
-  - credentials
+  - setup
+  - nous-portal
+  - onboarding
   - providers
-  - codex
-  - gemini
-  - mcp
-  - profiles
-  - gws
-  path: docs/concepts/oauth-credential-separation.md
-  last_updated: '2026-06-09'
-  version: 3
-  hermes_version_min: 0.14.0
-- slug: self-improvement-agent-safety
-  title: Self-Improvement Agent Safety
-  category: concepts
-  tags:
-  - self-improvement
-  - security
-  - profiles
-  - cron
-  - prompting
-  - skills
-  - scripts
-  - mcp
-  - memory
-  path: docs/concepts/self-improvement-agent-safety.md
-  last_updated: '2026-06-05'
-  version: 3
-  hermes_version_min: 0.14.0
-- slug: skill-consolidation-pattern
-  title: Skill Consolidation Pattern
-  category: concepts
-  tags:
-  - skills
-  - prompting
-  - architecture
-  - agent-design
-  - maintenance
-  path: docs/concepts/skill-consolidation-pattern.md
-  last_updated: '2026-05-28'
+  - oauth
+  - models
+  path: docs/getting-started/quick-setup-nous-portal.md
+  last_updated: '2026-06-10'
   version: 1
-  hermes_version_min: 0.14.0
+  hermes_version_min: 0.16.0
 - slug: capability-matrix-allowlist
   title: Capability Matrix Allowlist (Data-Not-Prosa Derogations)
   category: guides
@@ -93,6 +48,21 @@ docs:
   last_updated: '2026-06-02'
   version: 1
   hermes_version_min: 0.14.0
+- slug: desktop-remote-gateway
+  title: Connect Hermes Desktop to a Remote Gateway
+  category: guides
+  tags:
+  - desktop
+  - gateway
+  - remote
+  - oauth
+  - profiles
+  - websocket
+  - authentication
+  path: docs/guides/desktop-remote-gateway.md
+  last_updated: '2026-06-10'
+  version: 1
+  hermes_version_min: 0.16.0
 - slug: elevenlabs-tts
   title: Configure ElevenLabs TTS for a Hermes Profile
   category: guides
@@ -162,6 +132,22 @@ docs:
   last_updated: '2026-06-02'
   version: 1
   hermes_version_min: 0.14.0
+- slug: hermes-016-surface-release
+  title: Hermes Agent 0.16.0 Surface Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - desktop
+  - dashboard
+  - skills
+  - setup
+  - security
+  - cli
+  - tui
+  path: docs/reference/hermes-016-surface-release.md
+  last_updated: '2026-06-10'
+  version: 1
+  hermes_version_min: 0.16.0
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference
@@ -188,6 +174,65 @@ docs:
   path: docs/reference/provider-authentication.md
   last_updated: '2026-06-09'
   version: 2
+  hermes_version_min: 0.14.0
+- slug: fleet-learner-architecture
+  title: Fleet Learner Architecture
+  category: concepts
+  tags:
+  - self-improvement
+  - multi-agent
+  - memory
+  - skills
+  - concepts
+  path: docs/concepts/fleet-learner-architecture.md
+  last_updated: '2026-06-05'
+  version: 1
+  hermes_version_min: 0.14.0
+- slug: oauth-credential-separation
+  title: OAuth Credential Separation in Hermes
+  category: concepts
+  tags:
+  - oauth
+  - credentials
+  - providers
+  - codex
+  - gemini
+  - mcp
+  - profiles
+  - gws
+  path: docs/concepts/oauth-credential-separation.md
+  last_updated: '2026-06-09'
+  version: 3
+  hermes_version_min: 0.14.0
+- slug: self-improvement-agent-safety
+  title: Self-Improvement Agent Safety
+  category: concepts
+  tags:
+  - self-improvement
+  - security
+  - profiles
+  - cron
+  - prompting
+  - skills
+  - scripts
+  - mcp
+  - memory
+  path: docs/concepts/self-improvement-agent-safety.md
+  last_updated: '2026-06-05'
+  version: 3
+  hermes_version_min: 0.14.0
+- slug: skill-consolidation-pattern
+  title: Skill Consolidation Pattern
+  category: concepts
+  tags:
+  - skills
+  - prompting
+  - architecture
+  - agent-design
+  - maintenance
+  path: docs/concepts/skill-consolidation-pattern.md
+  last_updated: '2026-05-28'
+  version: 1
   hermes_version_min: 0.14.0
 - slug: codex-gpt55-errors
   title: Codex gpt-5.5 Errors

@@ -57,3 +57,8 @@ Log of every Kos elaboration run on this repository.
 - **Updated**: provider-chain-subscription-oauth — Added operational warning that auth errors may not trigger fallback in Hermes Agent 0.14.0.
 - **Sources**: sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
 
+## 2026-06-10
+- **Added**: quick-setup-nous-portal — Getting-started page for Hermes 0.16.0 Quick Setup via Nous Portal and the `hermes portal` alias.
+- **Added**: desktop-remote-gateway — Guide for connecting the native desktop app to an OAuth or username/password protected remote Hermes gateway.
+- **Added**: hermes-016-surface-release — Reference summary of the 0.16.0 Surface Release: desktop app, dashboard admin panel, setup, skills, CLI/TUI, and security notes.
+- **Sources**: no ready session files; upstream release https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5; PyPI https://pypi.org/project/hermes-agent/0.16.0/

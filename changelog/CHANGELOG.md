@@ -62,3 +62,8 @@ Log of every Kos elaboration run on this repository.
 - **Added**: desktop-remote-gateway — Guide for connecting the native desktop app to an OAuth or username/password protected remote Hermes gateway.
 - **Added**: hermes-016-surface-release — Reference summary of the 0.16.0 Surface Release: desktop app, dashboard admin panel, setup, skills, CLI/TUI, and security notes.
 - **Sources**: no ready session files; upstream release https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5; PyPI https://pypi.org/project/hermes-agent/0.16.0/
+
+## 2026-06-25
+- **No sessions to process** — zero sessions with status: ready found.
+- **Sources**: none
+

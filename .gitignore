@@ -6,3 +6,6 @@ secrets.env
 *.key
 *token*
 !*.example
+
+# Kos operational memory (ephemeral reports, not docs content)
+memories/

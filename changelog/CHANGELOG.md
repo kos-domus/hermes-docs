@@ -77,3 +77,9 @@ Log of every Kos elaboration run on this repository.
 
 No sessions with status: ready found on 2026-08-14. Skipping elaboration cycle.
 No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
+
+## 2026-08-31
+- **Added**: hermes-019-020-release-wave — Reference for the v0.19.0 Quicksilver through v0.20.6 release wave: voice/barge-in, A2A v1.0, signed outbound webhooks, grounded citations, SecretSource interface, delivery-obligation ledger, keyless web tier, MCP 2.x, upgrade attention points, PyPI distribution lag note.
+- **Added**: secrets-vault-integration — Guide for the `secrets:` block and SecretSource backends: 1Password (`op://` refs, setup/CLI/config), Bitwarden Secrets Manager (machine accounts, bws auto-install), command helper, multi-source precedence ladder, `preserve_existing` + profile aliasing, plugin contract.
+- **Updated**: quick-setup-nous-portal — v2: added Tool Gateway coverage, `/subscription` `/topup` terminal flows (0.19.0), and keyless web tier on fresh installs (0.20.5).
+- **Sources**: no ready session files (all 8 sessions status: processed); upstream sync — https://github.com/NousResearch/hermes-agent/releases (v2026.7.20 → v2026.8.27), https://hermes-agent.nousresearch.com/docs/user-guide/secrets/, https://pypi.org/pypi/hermes-agent/json

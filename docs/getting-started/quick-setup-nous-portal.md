@@ -12,8 +12,9 @@ tags:
 sources:
 - upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5
 - upstream:https://pypi.org/project/hermes-agent/0.16.0/
-last_updated: '2026-06-10'
-version: 1
+- upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.19
+last_updated: '2026-08-31'
+version: 2
 hermes_version_min: 0.16.0
 ---
 # Quick Setup via Nous Portal
@@ -50,6 +51,14 @@ The 0.16.0 release notes describe the flow as:
 3. start chatting.
 
 The model picker is now fuzzy-searchable across the desktop app, web dashboard, TUI, and CLI. You can type partial model names rather than scrolling a long provider list.
+
+## What the Portal subscription covers
+
+From 0.16.0 the Nous Portal subscription covers both the model provider and the **Tool Gateway** — web search (Firecrawl), image generation (FAL), text-to-speech (OpenAI), and cloud browser (Browser Use), all routed through the sub with no extra accounts. Check wiring with `hermes portal info`.
+
+From **0.20.5**, fresh installs additionally get the **keyless web tier** — a 5-vendor free rotation with ring failover that makes web search work with zero API keys, independent of the Portal. See [Hermes Agent 0.19–0.20 Release Wave Reference](../reference/hermes-019-020-release-wave.md).
+
+From **0.19.0**, `/subscription` and `/topup` manage the Nous plan entirely from the terminal (plan status, remaining allowance, upgrade preview with cost, scheduled changes with undo).
 
 ## Choosing provider later
 

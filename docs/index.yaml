@@ -1,5 +1,5 @@
-generated_at: '2026-08-31'
-doc_count: 24
+generated_at: '2026-09-01'
+doc_count: 25
 categories:
 - getting-started
 - guides
@@ -177,9 +177,27 @@ docs:
   - desktop
   - cli
   path: docs/reference/hermes-019-020-release-wave.md
-  last_updated: '2026-08-31'
-  version: 1
+  last_updated: '2026-09-01'
+  version: 2
   hermes_version_min: 0.19.0
+- slug: hermes-021-pantheon-release
+  title: Hermes Agent 0.21.0 Pantheon Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - bot-mode
+  - multi-agent
+  - cron
+  - delegation
+  - mcp
+  - desktop
+  - security
+  - providers
+  - cli
+  path: docs/reference/hermes-021-pantheon-release.md
+  last_updated: '2026-09-01'
+  version: 1
+  hermes_version_min: 0.21.0
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

@@ -83,3 +83,9 @@ No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
 - **Added**: secrets-vault-integration — Guide for the `secrets:` block and SecretSource backends: 1Password (`op://` refs, setup/CLI/config), Bitwarden Secrets Manager (machine accounts, bws auto-install), command helper, multi-source precedence ladder, `preserve_existing` + profile aliasing, plugin contract.
 - **Updated**: quick-setup-nous-portal — v2: added Tool Gateway coverage, `/subscription` `/topup` terminal flows (0.19.0), and keyless web tier on fresh installs (0.20.5).
 - **Sources**: no ready session files (all 8 sessions status: processed); upstream sync — https://github.com/NousResearch/hermes-agent/releases (v2026.7.20 → v2026.8.27), https://hermes-agent.nousresearch.com/docs/user-guide/secrets/, https://pypi.org/pypi/hermes-agent/json
+
+## 2026-09-01
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Added**: hermes-021-pantheon-release — Reference for v0.21.0 "Pantheon" (v2026.8.31): Bot Mode built into desktop, `hermes peer` bot-to-bot DMs, cron memory/continuity/notepads, live subagent steering with output schemas, MCP command center, agent-driven desktop browser, provider wave + `model_overrides`, protected instruction files, redaction sweep, Blender MCP removal, reverted features list, upgrade attention points, PyPI lag note (still 0.19.0).
+- **Updated**: hermes-019-020-release-wave — v2: cross-link to the new 0.21.0 Pantheon reference (which rolls up the 0.20.1–0.20.6 windows documented there).
+- **Sources**: no ready session files; upstream sync — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json

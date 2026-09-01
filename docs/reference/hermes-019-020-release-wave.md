@@ -8,8 +8,8 @@ sources:
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.3"
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.27"
   - "upstream:https://pypi.org/pypi/hermes-agent/json"
-last_updated: "2026-08-31"
-version: 1
+last_updated: "2026-09-01"
+version: 2
 hermes_version_min: "0.19.0"
 ---
 
@@ -159,6 +159,7 @@ Proactive tool-result pruning for large-window models, per-turn micro-compaction
 
 ## Related docs
 
+- [Hermes Agent 0.21.0 Pantheon Release Reference](hermes-021-pantheon-release.md) — v0.21.0 rolls up the v0.20.1–v0.20.6 windows documented on this page and adds Bot Mode, `hermes peer`, and cron memory on top.
 - [Quick Setup via Nous Portal](../getting-started/quick-setup-nous-portal.md)
 - [Secrets Vault Integration](../guides/secrets-vault-integration.md)
 - [Provider Authentication Reference](provider-authentication.md)

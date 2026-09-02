@@ -4,3 +4,4 @@ no sessions to process today (all processed or none ready as of 2026-06-26)
 2026-06-28 07:47:06 - no sessions to process today (all 8 sessions status: processed, last session 2026-06-09)
 no sessions to process today (2026-06-29)
 2026-09-01 no sessions ready (all processed); upstream sync: v0.21.0 Pantheon (v2026.8.31) ingested → +1 doc (hermes-021-pantheon-release), 1 updated (hermes-019-020-release-wave v2). PyPI still 0.19.0 (lag). Commit cd75b26.
+2026-09-02 07:46:35 - no sessions ready (all 8 processed, last session 2026-06-09); upstream stable unchanged: v0.21.0 (v2026.8.31), PyPI still 0.19.0. No docs/index churn (skip contract).

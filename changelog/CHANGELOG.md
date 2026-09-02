@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-02
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: GitHub stable unchanged at v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31T19:29:49Z); no new prereleases/tags since. PyPI still lags at 0.19.0. No docs or index changes (skip contract: zero churn).
+- **Self-assessment**: clean skip run — robust session discovery (`grep -E 'status:\s*["\']?ready'`), zero docs/index churn, gitleaks passed before commit, only `logs/daily-elaboration.log` + this changelog block staged. Approval-guard quirks hit (curl|python3 and `python3 -c` both blocked in cron): fell back to `gh --jq` + `grep -o` on a saved JSON file, per skill guidance.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-05-24 — Repo bootstrap
 
 - **Created**: repo scaffold mirroring `openclaw-docs` structure (Diátaxis docs/, sessions/, changelog/, strategy/, skill-draft/, assets/)

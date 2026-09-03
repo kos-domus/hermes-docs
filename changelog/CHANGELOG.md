@@ -96,3 +96,8 @@ No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
 - **Added**: hermes-021-pantheon-release — Reference for v0.21.0 "Pantheon" (v2026.8.31): Bot Mode built into desktop, `hermes peer` bot-to-bot DMs, cron memory/continuity/notepads, live subagent steering with output schemas, MCP command center, agent-driven desktop browser, provider wave + `model_overrides`, protected instruction files, redaction sweep, Blender MCP removal, reverted features list, upgrade attention points, PyPI lag note (still 0.19.0).
 - **Updated**: hermes-019-020-release-wave — v2: cross-link to the new 0.21.0 Pantheon reference (which rolls up the 0.20.1–0.20.6 windows documented there).
 - **Sources**: no ready session files; upstream sync — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json
+
+## 2026-09-03
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: stable unchanged — GitHub latest release still v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31, not a prerelease); PyPI hermes-agent still 0.19.0 (distribution lag). Local CLI at v0.20.6 (2026.8.27), reports 1184 commits behind upstream tip — upgrade candidate noted, not acted on (docs cycle does not upgrade the runtime).
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases, https://pypi.org/pypi/hermes-agent/json

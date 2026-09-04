@@ -101,3 +101,10 @@ No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
 - **Upstream check**: stable unchanged — GitHub latest release still v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31, not a prerelease); PyPI hermes-agent still 0.19.0 (distribution lag). Local CLI at v0.20.6 (2026.8.27), reports 1184 commits behind upstream tip — upgrade candidate noted, not acted on (docs cycle does not upgrade the runtime).
 - **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases, https://pypi.org/pypi/hermes-agent/json
+
+## 2026-09-04
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: GitHub stable unchanged at v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31T19:29:49Z); no new tags/prereleases since (latest tags: v2026.8.31, v2026.8.27, v2026.8.19). PyPI still lags at 0.19.0. No docs or index changes (skip contract: zero churn).
+- **Environment note**: local install v0.20.6 now 1293 commits behind upstream main (was 1184 yesterday) — main branch active (~109 commits) but no tagged release yet; upgrade deferred until a stable tag lands.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json

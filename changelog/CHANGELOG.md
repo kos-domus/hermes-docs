@@ -108,3 +108,11 @@ No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
 - **Upstream check**: GitHub stable unchanged at v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31T19:29:49Z); no new tags/prereleases since (latest tags: v2026.8.31, v2026.8.27, v2026.8.19). PyPI still lags at 0.19.0. No docs or index changes (skip contract: zero churn).
 - **Environment note**: local install v0.20.6 now 1293 commits behind upstream main (was 1184 yesterday) — main branch active (~109 commits) but no tagged release yet; upgrade deferred until a stable tag lands.
 - **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json
+
+## 2026-09-05
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: GitHub stable unchanged at v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31T19:29:49Z); no new tags/prereleases since (latest tags: v2026.8.31, v2026.8.27, v2026.8.19). PyPI still lags at 0.19.0. No docs or index changes (skip contract: zero churn).
+- **Environment note**: upstream main is in a heavy burst — local install v0.20.6 now 5600 commits behind origin/main (was 1293 yesterday; ~1330 commits in the last 48h, 5785 in 7d; tip 1e69c12b64 feat(slack): interactive Block Kit model picker for /model). No stable tag has landed yet; upgrade remains deferred until a tagged release ships.
+- **Security note**: PyPI JSON lists 4 OSV advisories (GHSA-xq8w-9jvx-gm3v / CVE-2026-10221 injection in _compress_context ≤0.12.0; GHSA-pmqc-57g8-c22c / CVE-2026-10224 resource consumption in feishu webhook ≤2026.4.30). Local runtime v0.20.6 is newer than both affected ranges — not vulnerable.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json

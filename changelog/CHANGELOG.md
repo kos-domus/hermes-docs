@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-07
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: GitHub stable unchanged at v0.21.0 "Pantheon" (v2026.8.31, published 2026-08-31T19:29:49Z); no new prereleases/tags since. PyPI still lags at 0.19.0. Local runtime v0.21.0, now 265 commits behind upstream main (rev-list cross-check: 266; was 18 yesterday — upstream burst ~250 commits/24h, no new tag yet). GitHub security advisories for the repo: none published. Direct OSV API query blocked by cron security scanner (lookalike-TLD heuristic on `.dev`); previous OSV snapshot (2026-09-05) had both advisories in ranges ≤0.12.0 / ≤2026.4.30, local v0.21.0 not affected. No docs or index changes (skip contract: zero churn).
+- **Self-assessment**: clean skip run — robust session discovery (`grep -E 'status:\s*["'\'']?ready'`), zero docs/index churn, gitleaks passed before commit, only `logs/daily-elaboration.log` + this changelog block staged. Behind-count cross-checked via `hermes --version` (265) vs `git fetch` + `rev-list --count HEAD..origin/main` (266, drift of 1 from concurrent upstream pushes during measurement) — recorded both, semantics: local-behind-main-tip.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-09-02
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

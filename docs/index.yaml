@@ -1,5 +1,5 @@
-generated_at: '2026-09-01'
-doc_count: 25
+generated_at: '2026-09-08'
+doc_count: 26
 categories:
 - getting-started
 - guides
@@ -198,6 +198,25 @@ docs:
   last_updated: '2026-09-01'
   version: 1
   hermes_version_min: 0.21.0
+- slug: hermes-0211-patch-release
+  title: Hermes Agent 0.21.1 Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - rollup
+  - performance
+  - modularization
+  - mcp
+  - cron
+  - delegation
+  - desktop
+  - providers
+  - cli
+  path: docs/reference/hermes-0211-patch-release.md
+  last_updated: '2026-09-08'
+  version: 1
+  hermes_version_min: 0.21.1
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

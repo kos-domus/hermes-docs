@@ -2,6 +2,15 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-08
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable moved v0.21.0 → **v0.21.1 (tag `v2026.9.7`, published 2026-09-07T22:17:01Z, prerelease=false)**. Patch rollup of main since v0.21.0: 5,139 non-merge commits, 4,364 files, 632 merged PRs; areas: modularization, file-op/startup perf, provider updates, desktop session controls + browser annotations, MCP auth, cron scheduling/delivery fixes, delegation reliability. Full curated notes deferred to v0.22.0. PyPI still lags at 0.19.0. No new prereleases/tags beyond v2026.9.7.
+- **Added**: `hermes-0211-patch-release` — new reference doc for the v0.21.1 patch release (upstream-sourced, per the stable-release-ingestion pattern; `docs/index.yaml` regenerated with doc_count 26, new entry inserted adjacent to the other release references, no reordering churn).
+- **Local runtime**: still v0.21.0 snapshot, now 697 commits behind upstream main (`hermes --version`; rev-list cross-check: 698, drift of 1 from concurrent pushes; was 265 yesterday — upstream burst ~430/24h). v0.21.1 upgrade available via `hermes update`; not applied by this docs run (docs cycle does not upgrade the runtime).
+- **Self-assessment**: upstream-sourced ingestion run — robust session discovery (`grep -E 'status:\s*["']?ready'`), release verified against the **paginated releases list** (not the single `latest` endpoint, which can lag hours after a stable advance), zero session churn, gitleaks passed before commit, only the new doc + index + log + this changelog block staged.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.7, https://github.com/NousResearch/hermes-agent/compare/v2026.8.31...v2026.9.7, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-09-07
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

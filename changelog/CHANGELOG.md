@@ -2,6 +2,18 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-12
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable moved v0.21.1 → **v0.21.2 (tag `v2026.9.11`, published 2026-09-11T19:20:31Z, prerelease=false)** — "The state.db Patch Release". Window since v0.21.1: 947 non-merge commits, 1,869 files, 312 merged PRs, 140 contributors. Headline: state.db reliability campaign (six PRs, 44 issues closed) fixing the second-writer/WAL-wedge/FTS-misclassification/corrupt-row regressions from the v0.21.0 session-store rewrite; plus multi-profile isolation hardening, Desktop spawn-storm fixes, password-blind credential vault, SHA-pinned plugin catalog, Nous free tier. Verified against the paginated releases list. PyPI still lags at 0.19.0. GitHub security advisories for the repo: none published.
+- **Added**: `hermes-0212-state-db-patch-release` — new reference doc for the v0.21.2 patch release (upstream-sourced ingestion pattern; `docs/index.yaml` regenerated with doc_count 27, entry inserted adjacent to the other release references, no reordering churn).
+- **Updated**: `hermes-0211-patch-release` — version 2: cross-link to the new 0.21.2 doc (successor patch), `last_updated` bump.
+- **Repo hygiene recovery**: removed stray root `.elaboration.log` — a mis-pathed artifact committed by the 2026-09-10 run (`eefcac0`) that bypassed `logs/daily-elaboration.log`; now gitignored. Also noted: the 2026-09-11 run (`5eaf0bf`) committed empty (log+changelog missing) — this block restores changelog continuity; both anomalies called out here rather than silently papered over.
+- **Local runtime**: still v0.21.0 snapshot (+5,322 past tag `v2026.8.31`), now 1,752 commits behind upstream main per `hermes --version` (rev-list cross-check post-fetch: 1,752, zero drift; was 942-972 on 09-09 — upstream burst ~780/24h). Behind both stable tags: 673 behind `v2026.9.7` (v0.21.1), 1,659 behind `v2026.9.11` (v0.21.2). v0.21.2 upgrade available via `hermes update`; not applied by this docs run (docs cycle does not upgrade the runtime).
+- **Self-assessment**: upstream-sourced ingestion run — robust session discovery (`grep -E 'status:\s*["']?ready'` over all 8 session files), release verified against the paginated releases list (not the single `latest` endpoint), gitleaks passed before commit, staged set limited to the new doc + 0211 update + index + log + changelog + hygiene removal (`.elaboration.log` deletion + `.gitignore`). One cron-guard hit: `python3 -c` inline in a validation one-liner blocked (known); redone with sed+grep only.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11, https://github.com/NousResearch/hermes-agent/compare/v2026.9.7...v2026.9.11, https://pypi.org/pypi/hermes-agent/json
+
+
 ## 2026-09-09
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

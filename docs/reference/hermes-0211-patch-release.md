@@ -7,8 +7,8 @@ sources:
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.7"
   - "upstream:https://github.com/NousResearch/hermes-agent/compare/v2026.8.31...v2026.9.7"
   - "upstream:https://pypi.org/pypi/hermes-agent/json"
-last_updated: "2026-09-08"
-version: 1
+last_updated: "2026-09-12"
+version: 2
 hermes_version_min: "0.21.1"
 ---
 
@@ -56,6 +56,7 @@ When v0.22.0 ships its curated notes, this doc should link them and absorb featu
 
 ## Related docs
 
+- [Hermes Agent 0.21.2 state.db Patch Release Reference](hermes-0212-state-db-patch-release.md) — the follow-up patch that repairs the state.db reliability regressions from the v0.21.0 session-store rewrite.
 - [Hermes Agent 0.21.0 Pantheon Release Reference](hermes-021-pantheon-release.md) — the minor release this patch rolls up.
 - [Hermes Agent 0.19–0.20 Release Wave Reference](hermes-019-020-release-wave.md)
 - [MCP Server Setup Reference](mcp-server-setup.md)

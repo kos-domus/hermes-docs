@@ -9,3 +9,4 @@ secrets.env
 
 # Kos operational memory (ephemeral reports, not docs content)
 memories/
+.elaboration.log

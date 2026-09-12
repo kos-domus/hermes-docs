@@ -1,5 +1,5 @@
-generated_at: '2026-09-08'
-doc_count: 26
+generated_at: '2026-09-12'
+doc_count: 27
 categories:
 - getting-started
 - guides
@@ -214,9 +214,29 @@ docs:
   - providers
   - cli
   path: docs/reference/hermes-0211-patch-release.md
-  last_updated: '2026-09-08'
-  version: 1
+  last_updated: '2026-09-12'
+  version: 2
   hermes_version_min: 0.21.1
+- slug: hermes-0212-state-db-patch-release
+  title: Hermes Agent 0.21.2 state.db Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - state-db
+  - sqlite
+  - session-store
+  - multi-profile
+  - security
+  - plugins
+  - cron
+  - desktop
+  - providers
+  - cli
+  path: docs/reference/hermes-0212-state-db-patch-release.md
+  last_updated: '2026-09-12'
+  version: 1
+  hermes_version_min: 0.21.2
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

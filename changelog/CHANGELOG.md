@@ -2,6 +2,17 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-16
+
+- **No ready sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable moved v0.21.2 → **v0.21.3 (tag `v2026.9.14`, published 2026-09-14T16:04:14Z, prerelease=false)** — the "Remote-Gateway Patch Release". Window since v0.21.2: 1,036 non-merge commits, 2,642 changed files, 338 merged PRs. Headline: remote dashboard sessions no longer expire on refresh bursts (refresh-token coalescing on both gateway paths, off-event-loop refresh, pairs with hermes-portal#1209); plus state.db writer-handle dedup (read-only attach for gateway/dashboard/ACP/CLI readers, shared registry handle for in-process writers). Missed by the 09-14 run (checked 05:47 UTC, ~10h before publish) and by the degenerated 09-15 run. Verified against the paginated releases list. PyPI still lags at 0.19.0. GitHub security advisories: none published.
+- **Added**: `hermes-0213-remote-gateway-patch-release` — new reference doc for the v0.21.3 patch release (upstream-sourced ingestion pattern; `docs/index.yaml` regenerated with doc_count 28, entry inserted adjacent to the other release references, no reordering churn).
+- **Updated**: `hermes-0212-state-db-patch-release` — version 2: cross-link to the new 0.21.3 doc (successor patch), `last_updated` bump.
+- **Run-continuity recovery**: the 2026-09-15 run (`a5ccf68`) committed only `processing.log` — no changelog block, no daily-log entry, no upstream check. Same degeneration class as the 2026-09-11 empty commit; this block restores changelog continuity and calls it out rather than papering over it.
+- **Local runtime**: still v0.21.0 snapshot (+5,322 past tag `v2026.8.31`), now 3,769 commits behind upstream main per post-fetch rev-list (`hermes --version` printed 3,769 pre-fetch too — zero drift; was 2,573 on 09-14 — upstream burst ~1,196/48h, all post-tag activity: behind-tag counts 1,659 for `v2026.9.11` / v0.21.2 and 2,698 for `v2026.9.14` / v0.21.3). v0.21.3 upgrade available via `hermes update`; not applied by this docs run (docs cycle does not upgrade the runtime).
+- **Self-assessment**: upstream-sourced ingestion run — robust session discovery (`grep -E 'status:\s*["']?ready'` over all 8 session files, statuses enumerated individually), release verified against the paginated releases list (not the single `latest` endpoint), zero advisories, gitleaks passed before commit, staged set limited to the new doc + 0212 update + index + log + changelog + processing.log. No cron-guard hits this run.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14, https://github.com/NousResearch/hermes-agent/compare/v2026.9.11...v2026.9.14, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-09-14
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

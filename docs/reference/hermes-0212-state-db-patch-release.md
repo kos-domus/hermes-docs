@@ -7,8 +7,8 @@ sources:
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.11"
   - "upstream:https://github.com/NousResearch/hermes-agent/compare/v2026.9.7...v2026.9.11"
   - "upstream:https://pypi.org/pypi/hermes-agent/json"
-last_updated: "2026-09-12"
-version: 1
+last_updated: "2026-09-16"
+version: 2
 hermes_version_min: "0.21.2"
 ---
 
@@ -67,6 +67,7 @@ For multi-profile (multiplex) installs: secondary-profile bots no longer inherit
 
 ## Related docs
 
+- [Hermes Agent 0.21.3 Remote-Gateway Patch Release Reference](hermes-0213-remote-gateway-patch-release.md) — the successor patch rollup that extends this campaign.
 - [Hermes Agent 0.21.1 Patch Release Reference](hermes-0211-patch-release.md) — the previous patch rollup.
 - [Hermes Agent 0.21.0 Pantheon Release Reference](hermes-021-pantheon-release.md) — the minor release whose session-store rewrite this patch repairs.
 - [MCP Server Setup Reference](mcp-server-setup.md)

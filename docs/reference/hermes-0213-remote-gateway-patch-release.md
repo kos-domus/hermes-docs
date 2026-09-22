@@ -72,7 +72,8 @@ Full curated release notes for the whole post-v0.21.0 window ship with **v0.22.0
 
 ## Related docs
 
-- [Hermes Agent 0.21.2 state.db Patch Release Reference](hermes-0212-state-db-patch-release.md) — the previous patch rollup whose reliability campaign this release extends.
+- [Hermes Agent 0.21.4 Fleet Rollup Patch Release Reference](hermes-0214-fleet-rollup-patch-release.md) — the successor patch rollup (gateway singleton lock, stream-json CLI, skills.auto_load).
+- [Hermes Agent 0.21.2 state.db Patch Release Reference](hermes-0212-state-db-patch-release.md)
 - [Hermes Agent 0.21.1 Patch Release Reference](hermes-0211-patch-release.md)
 - [Hermes Agent 0.21.0 Pantheon Release Reference](hermes-021-pantheon-release.md)
 - [Connect Hermes Desktop to a Remote Gateway](../guides/desktop-remote-gateway.md) — the deployment pattern the headline fix protects.

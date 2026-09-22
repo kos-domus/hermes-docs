@@ -2,6 +2,17 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-22
+
+- **No ready sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable moved v0.21.3 → **v0.21.4 (tag `v2026.9.21`, published 2026-09-21T18:10:55Z, prerelease=false)** — the "Fleet Rollup Patch Release". Window since v0.21.3 (7 days): 5,071 non-merge commits, 5,169 changed files (+312,961/−62,855), 1,812 merged PRs, 2,116 closed issues — largest patch window of the rollup series (≈5.4× v0.21.3's commits). Headlines: host-wide gateway singleton lock with rendezvous record + Desktop attaching to the running host backend instead of spawning a second one; `--format stream-json` CLI output; `skills.auto_load`; `decline` unauthorized-DM behavior; `mcp.discovery_concurrency` cap; `session_search` after/before bounds; `hermes sessions set-journal-mode`; LTX 2.5 + Kling O3; ~12 new community plugins. Curated notes deferred to v0.22.0. Verified against the paginated releases list. PyPI still lags at 0.19.0. GitHub repo security advisories: none published.
+- **Security note**: PyPI JSON still lists 4 OSV advisory entries = 2 unique CVEs (GHSA-xq8w-9jvx-gm3v / CVE-2026-10221 injection in `_compress_context` ≤0.12.0; GHSA-pmqc-57g8-c22c / CVE-2026-10224 resource consumption in feishu webhook ≤2026.4.30), each mirrored as PYSEC entries. Affected ranges unchanged; local runtime v0.21.0 is newer than both — not vulnerable.
+- **Added**: `hermes-0214-fleet-rollup-patch-release` — new reference doc for the v0.21.4 patch release (upstream-sourced ingestion pattern, same as 0212/0213); `docs/index.yaml` regenerated with doc_count 29, entry inserted adjacent to the other release references, no reordering churn. Index validated programmatically: 29 entries, zero duplicate slugs, zero missing paths.
+- **Updated**: `hermes-0213-remote-gateway-patch-release` — version 2: cross-link to the new 0.21.4 doc (successor patch), `last_updated` bump.
+- **Local runtime**: still v0.21.0 snapshot (+5,322 past tag `v2026.8.31`), now 7,977 commits behind upstream main per post-fetch rev-list (`hermes --version` printed 7,971 pre-fetch; pre-fetch ≤ post-fetch, consistent drift from concurrent upstream pushes; was 7,646 on 09-21 — upstream burst ~331/24h, nearly all now pre-tag: behind-tag 7,871 for `v2026.9.21` / v0.21.4, tag-to-main only 106). Identity check passed (7,871+106=7,977). v0.21.4 upgrade available via `hermes update`; not applied by this docs run (docs cycle does not upgrade the runtime).
+- **Self-assessment**: upstream-sourced ingestion run — robust session discovery (`grep -E 'status:\s*["']?ready'` over all 8 session files, statuses enumerated individually), release verified against the paginated releases list, zero repo advisories, index re-validated (YAML parse + slug/path checks), gitleaks passed before commit, staged set limited to the new doc + 0213 update + index + changelog + logs.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.21, https://github.com/NousResearch/hermes-agent/compare/v2026.9.14...v2026.9.21, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-09-21
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

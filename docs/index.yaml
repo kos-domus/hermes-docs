@@ -1,5 +1,5 @@
-generated_at: '2026-09-16'
-doc_count: 28
+generated_at: '2026-09-22'
+doc_count: 29
 categories:
 - getting-started
 - guides
@@ -253,9 +253,35 @@ docs:
   - providers
   - cli
   path: docs/reference/hermes-0213-remote-gateway-patch-release.md
-  last_updated: '2026-09-16'
-  version: 1
+  last_updated: '2026-09-22'
+  version: 2
   hermes_version_min: 0.21.3
+- slug: hermes-0214-fleet-rollup-patch-release
+  title: Hermes Agent 0.21.4 Fleet Rollup Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - gateway
+  - singleton-lock
+  - desktop
+  - cli
+  - stream-json
+  - skills
+  - auto-load
+  - mcp
+  - discovery-concurrency
+  - session-search
+  - security
+  - unauthorized-dm
+  - plugins
+  - cron
+  - kanban
+  - state-db
+  path: docs/reference/hermes-0214-fleet-rollup-patch-release.md
+  last_updated: '2026-09-22'
+  version: 1
+  hermes_version_min: 0.21.4
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

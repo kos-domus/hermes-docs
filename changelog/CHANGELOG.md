@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-09-24
+
+- **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check**: GitHub stable unchanged at v0.21.4 (tag `v2026.9.21`, published 2026-09-21T18:10:55Z, ingested 2026-09-22 as `hermes-0214-fleet-rollup-patch-release`); verified against the paginated releases list. No newer tags or prereleases beyond v2026.9.21. PyPI still lags at 0.19.0. GitHub security advisories for the repo: none published. No docs or index changes (skip contract: zero churn).
+- **Local runtime**: still v0.21.0 snapshot (+5,322 past tag `v2026.8.31`), now 9,347 commits behind upstream main per post-fetch rev-list (`hermes --version` printed 9,338 pre-fetch; pre-fetch ≤ post-fetch, consistent drift from concurrent upstream pushes; was 8,359 on 09-23 — upstream burst ~988/24h, all post-tag activity: behind-tag count unchanged at 7,871 for `v2026.9.21` / v0.21.4, tag-to-main now 1,476). Range-identity sanity check passed: behind-tag (7,871) + tag-to-main (1,476) = behind-main (9,347). v0.21.4 upgrade available via `hermes update`; not applied by this docs run (docs cycle does not upgrade the runtime).
+- **Self-assessment**: clean skip run — robust session discovery (`grep -E 'status:\s*["']?ready'` over all 8 session files, statuses enumerated individually), release verified against the paginated releases list, zero repo advisories, zero docs/index churn, gitleaks passed before commit, only `logs/daily-elaboration.log` + this changelog block staged.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.21, https://pypi.org/pypi/hermes-agent/json
+
 ## 2026-09-23
 
 - **No sessions to process** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

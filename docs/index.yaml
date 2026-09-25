@@ -1,5 +1,5 @@
-generated_at: '2026-09-22'
-doc_count: 29
+generated_at: '2026-09-25'
+doc_count: 30
 categories:
 - getting-started
 - guides
@@ -282,6 +282,31 @@ docs:
   last_updated: '2026-09-22'
   version: 1
   hermes_version_min: 0.21.4
+- slug: hermes-0215-desktop-plugin-sdk-patch-release
+  title: Hermes Agent 0.21.5 Desktop Plugin SDK Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - desktop
+  - plugin-sdk
+  - connectors
+  - mcp
+  - plugins
+  - catalog
+  - i18n
+  - voice-shortcuts
+  - gateway-standalone
+  - multiplexer
+  - live-dock
+  - kanban
+  - webhooks
+  - models
+  - performance
+  path: docs/reference/hermes-0215-desktop-plugin-sdk-patch-release.md
+  last_updated: '2026-09-25'
+  version: 1
+  hermes_version_min: 0.21.5
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

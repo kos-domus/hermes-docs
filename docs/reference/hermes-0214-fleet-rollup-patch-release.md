@@ -69,6 +69,7 @@ PyPI JSON still lists 4 OSV advisory entries = 2 unique CVEs (GHSA-xq8w-9jvx-gm3
 
 ## Related docs
 
+- [Hermes Agent 0.21.5 Desktop Plugin SDK Patch Release Reference](hermes-0215-desktop-plugin-sdk-patch-release.md) — the next patch rollup.
 - [Hermes Agent 0.21.3 Remote-Gateway Patch Release Reference](hermes-0213-remote-gateway-patch-release.md) — the previous patch rollup.
 - [Hermes Agent 0.21.2 state.db Patch Release Reference](hermes-0212-state-db-patch-release.md)
 - [Hermes Agent 0.21.0 Pantheon Release Reference](hermes-021-pantheon-release.md)

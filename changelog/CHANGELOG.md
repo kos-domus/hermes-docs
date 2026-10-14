@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-14
+
+- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — MAJOR STABLE ADVANCE**: GitHub stable advanced to **v0.22.0 "The Threshold Release"** (published 2026-10-14T03:21:46Z). Largest release to date with guided first-launch onboarding using free trial model, connectors for hosted apps (no account needed to start), one-click local llama.cpp models with hardware auto-detection, tested SemVer stable channels, signed desktop packages (MS Store support), 600 reviewed plugins, support for latest models (Claude 5.5 family, GPT-6), password manager fills in browser, live bot screen with human takeover, single gateway+backend per machine, visible live subagents with steer/stop buttons, smarter model picker, full internationalization, and ~34% smaller codebase. Local at v0.21.6+199.g1744a19.dirty (major update available). No docs or index changes (skip contract: zero churn).
+- **Environment note**: gitleaks passed cleanly (no leaks). hermes --version confirms the advance.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0
+
 ## 2026-10-13
 
 - **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

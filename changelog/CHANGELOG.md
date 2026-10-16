@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-16
+
+- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable advanced to **v0.22.2** (published 2026-10-15T08:21:32Z). Corrected build for the v0.22.1 that had wrong commit (gateway reboot PID race, long local-model survival on laptops with stall-timer/sleep-recovery/compression fixes, dedicated windows-store build lane). Known issue: sessions from 0.22.1 gateway cannot be deleted in 0.22.2. Local still v0.21.6+199.g1744a19.dirty (major update available via `hermes update`). No docs or index changes (skip contract: zero churn).
+- **Environment note**: gitleaks passed cleanly (no leaks). `hermes --version` confirms the advance.
+- **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.2
+
 ## 2026-10-14
 
 - **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

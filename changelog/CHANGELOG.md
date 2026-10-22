@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-22
+
+- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
+- **Upstream check — STABLE ADVANCE**: GitHub stable now at **v0.22.4** (Latest, published 2026-10-21). Local still v0.21.6+199.g1744a19.dirty (major update available via `hermes update`). No docs or index changes (skip contract: zero churn).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; processing.log updated.
+
 ## 2026-10-21
 
 - **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).

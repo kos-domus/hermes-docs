@@ -2,6 +2,22 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-25
+
+- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE**: GitHub stable remains at **v0.22.5** (Latest, published 2026-10-23; no new release today). Local at v0.22.5+197.gcb757fa.dirty ("Up to date").
+- **Changelog repair**: the 2026-10-24 block had been appended at the file bottom, breaking the newest-first convention; moved it back to the head (below today's entry). Convention restored.
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; processing.log updated.
+
+## 2026-10-24
+
+- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE**: GitHub stable remains at **v0.22.5** (Latest, published 2026-10-23; no new release today).
+- **Local install updated**: local Hermes now at **v0.22.5+197.gcb757fa.dirty** ("Up to date") — was v0.21.6+199.g1744a19.dirty as of 2026-10-23. Local is now aligned with upstream stable baseline.
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; processing.log updated.
+
 ## 2026-10-23
 
 - **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09).
@@ -429,10 +445,3 @@ No sessions with status: ready found on 2026-08-25. Skipping elaboration cycle.
 - **Security note**: PyPI JSON still lists 4 OSV advisory entries = 2 unique CVEs (GHSA-xq8w-9jvx-gm3v / CVE-2026-10221, GHSA-pmqc-57g8-c22c / CVE-2026-10224, each mirrored as PYSEC entries). Affected ranges unchanged (≤0.12.0 / ≤2026.4.30); local runtime v0.21.0 is newer than both — not vulnerable.
 - **Sources**: no ready session files; upstream check — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31, https://pypi.org/pypi/hermes-agent/json
 
-## 2026-10-24
-
-- **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09). No docs or index changes (skip contract: zero churn).
-- **Upstream check — STABLE**: GitHub stable remains at **v0.22.5** (Latest, published 2026-10-23; no new release today).
-- **Local install updated**: local Hermes now at **v0.22.5+197.gcb757fa.dirty** ("Up to date") — was v0.21.6+199.g1744a19.dirty as of 2026-10-23. Local is now aligned with upstream stable baseline.
-- **Environment note**: gitleaks passed cleanly (no leaks).
-- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; processing.log updated.

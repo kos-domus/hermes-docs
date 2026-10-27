@@ -1,5 +1,5 @@
-generated_at: '2026-10-13'
-doc_count: 30
+generated_at: '2026-10-27'
+doc_count: 33
 categories:
 - getting-started
 - guides
@@ -77,6 +77,37 @@ docs:
   last_updated: '2026-05-28'
   version: 1
   hermes_version_min: 0.14.0
+- slug: gateway-update-procedure
+  title: Safe Gateway Update Procedure
+  category: guides
+  tags:
+  - update
+  - gateway
+  - systemd
+  - whatsapp-bridge
+  - config-migration
+  - telegram
+  - multiplex
+  path: docs/guides/gateway-update-procedure.md
+  last_updated: '2026-10-27'
+  version: 1
+  hermes_version_min: 0.22.0
+- slug: hardened-read-only-agent
+  title: Build a Hardened Read-Only Agent (Isolated MCP Pattern)
+  category: guides
+  tags:
+  - security
+  - mcp
+  - least-privilege
+  - untrusted-input
+  - prompt-injection
+  - gmail
+  - gws
+  - profiles
+  path: docs/guides/hardened-read-only-agent.md
+  last_updated: '2026-10-27'
+  version: 1
+  hermes_version_min: 0.22.0
 - slug: mcp-fleet-propagation
   title: Propagate MCP Servers Across a Hermes Profile Fleet
   category: guides
@@ -334,6 +365,21 @@ docs:
   last_updated: '2026-06-09'
   version: 2
   hermes_version_min: 0.14.0
+- slug: quick-commands
+  title: Quick Commands Reference (exec, no LLM)
+  category: reference
+  tags:
+  - quick-commands
+  - slash-commands
+  - configuration
+  - multiplex
+  - telegram
+  - whatsapp
+  - access-control
+  path: docs/reference/quick-commands.md
+  last_updated: '2026-10-27'
+  version: 1
+  hermes_version_min: 0.22.0
 - slug: fleet-learner-architecture
   title: Fleet Learner Architecture
   category: concepts
@@ -404,8 +450,8 @@ docs:
   - troubleshooting
   - openai-codex
   path: docs/troubleshooting/codex-gpt55-errors.md
-  last_updated: '2026-06-09'
-  version: 2
+  last_updated: '2026-10-27'
+  version: 3
   hermes_version_min: 0.14.0
 - slug: cron-script-errors
   title: Cron Script Errors
@@ -432,9 +478,10 @@ docs:
   - oauth
   - credentials
   - cron
+  - secret-rotation
   path: docs/troubleshooting/gws-profile-credentials.md
-  last_updated: '2026-06-09'
-  version: 1
+  last_updated: '2026-10-27'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: mcp-errors
   title: MCP Server Errors

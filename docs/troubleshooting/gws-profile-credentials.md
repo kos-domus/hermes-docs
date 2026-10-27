@@ -10,10 +10,12 @@ tags:
 - oauth
 - credentials
 - cron
+- secret-rotation
 sources:
 - sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
-last_updated: '2026-06-09'
-version: 1
+- sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
+last_updated: '2026-10-27'
+version: 2
 hermes_version_min: 0.14.0
 ---
 # Profile-scoped Google Workspace Credentials
@@ -78,6 +80,37 @@ Then run a harmless Drive read/list or a small upload in the same profile HOME t
 3. Inspect the profile HOME for `credentials.enc`; do not inspect or copy token contents.
 4. Re-authenticate in place with the profile HOME.
 5. Re-run the failed cron job or its upload step.
+
+## Rotating an OAuth client secret (without killing every login)
+
+When a client secret has been exposed and must be rotated, the trap is in what `gws` does with the secret:
+
+- `gws` stores the `client_secret` **inside `credentials.enc`** (the authorized-user file) at login time and never re-reads `client_secret.json` on refresh.
+- There is no `gws auth import` — you cannot inject a new secret into existing tokens.
+- Deactivating the old secret therefore breaks **every existing login** at once, with:
+
+```text
+invalid_client
+```
+
+Also: rotate by adding a secret to the **existing** client (Edit → Add secret). Do **not** use "Add client" — that creates a new `client_id` and invalidates all logins and consent grants.
+
+Correct order:
+
+1. In the Google Cloud Console, add a **new secret** to the existing OAuth client (keep the old one active for now).
+2. Update `client_secret.json` in **every** `gws` config location (each profile HOME that uses it).
+3. Re-run `gws auth login` for every account (per profile HOME, as above).
+4. Verify each login (`encryption_valid: true`, `token_valid: true` and a working read call).
+5. Only then deactivate and delete the old secret.
+
+After any new login, also delete `token_cache.json` in that HOME — it can still hold a token minted under the old secret/scope set and keep serving stale credentials.
+
+## Consent-screen and project-membership 403s
+
+Two Google-side traps that surface as 403s **after** a login that reports success:
+
+- **Gmail scope checkbox unchecked.** For an unverified app, the consent screen can show the Gmail permission checkbox **unchecked by default**. The user approves without noticing, and the login succeeds — but the grant only contains `openid`/`email`. Symptom: `Gmail 403 insufficient scopes` on the first mail call. Fix: redo the consent flow with the Gmail box checked, then delete `token_cache.json` (see above).
+- **`403 serviceusage.services.use`.** The account logging in is not a member of the GCP project that owns the OAuth client. Fix: grant the IAM role **Service Usage Consumer** on the project to that account (no conditions needed).
 
 ## Related docs
 

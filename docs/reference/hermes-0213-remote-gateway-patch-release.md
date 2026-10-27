@@ -7,8 +7,8 @@ sources:
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14"
   - "upstream:https://github.com/NousResearch/hermes-agent/compare/v2026.9.11...v2026.9.14"
   - "upstream:https://pypi.org/pypi/hermes-agent/json"
-last_updated: "2026-09-16"
-version: 1
+last_updated: "2026-09-22"
+version: 2
 hermes_version_min: "0.21.3"
 ---
 

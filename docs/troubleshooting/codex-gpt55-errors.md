@@ -13,13 +13,14 @@ sources:
 - sessions/2026-05-27-hermes-pull-105-commits-codex-fix-tts-cornelia.md
 - sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md
 - sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
-last_updated: '2026-06-09'
-version: 2
+- sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
+last_updated: '2026-10-27'
+version: 3
 hermes_version_min: 0.14.0
 ---
 # Codex gpt-5.5 Errors
 
-Hermes can use the ChatGPT Codex backend through the `openai-codex` provider. In late May 2026, three separate failure modes appeared around `gpt-5.5`. They look similar in user experience because all can interrupt scheduled work, but their causes and fixes are different.
+Hermes can use the ChatGPT Codex backend through the `openai-codex` provider. In late May 2026, three separate failure modes appeared around `gpt-5.5`; in October 2026 a fourth surfaced. They look similar in user experience because all can interrupt scheduled work, but their causes and fixes are different.
 
 ## Quick decision table
 
@@ -28,6 +29,7 @@ Hermes can use the ChatGPT Codex backend through the `openai-codex` provider. In
 | Pattern A: `NoneType` stream crash | `TypeError: 'NoneType' object is not iterable` | Codex terminal stream frame returned `response.output = null`; older Hermes code consumed it through the OpenAI SDK helper | Pull Hermes upstream containing the structural stream-consumption fix, then restart active gateways |
 | Pattern B: no first byte / silent reject | `no first byte after 45s` or timeout before any model token | ChatGPT Codex backend silently drops or gates some `gpt-5.5` request payloads intermittently | Keep a fallback chain; treat as provider-side intermittency unless it becomes constant |
 | Pattern C: OAuth token expiry cascade | `HTTP 401 token_expired` in scheduled jobs, followed by repeated primary retries | The Codex OAuth access token expired and refresh failed in the cron/runtime context; auth errors did not trigger provider fallback in the observed Hermes 0.14 behavior | Add a fresh Hermes-owned Codex credential, inspect the auth pool, and monitor token warmth |
+| Pattern D: entitlement rejection + silent fallback | Requests silently answered by a different provider; the configured primary model is never used | The current ChatGPT plan is not entitled to the configured model (`gpt-5.5`, `gpt-5.4`, `gpt-5.3-codex`) on `openai-codex`; Hermes fails over per-request and only logs it | Switch the profile to an entitled model and monitor `agent.log` for `Fallback activated` |
 
 ## Pattern A: `TypeError: 'NoneType' object is not iterable`
 
@@ -181,6 +183,45 @@ journalctl --user -u 'hermes-gateway*.service' --since '2 hours ago' | grep -iE 
 
 For critical scheduled fleets, consider a small token-warmth job that periodically sends a cheap direct Codex prompt before important cron windows. This is a mitigation, not a substitute for fixing broken OAuth state: the goal is to surface refresh failure while an operator still has time to re-auth.
 
+## Pattern D: entitlement rejection with silent fallback (2026-10)
+
+### Exact symptom examples
+
+```text
+model is not supported when using Codex with a ChatGPT account
+not entitled
+Fallback activated: gpt-5.5 → <other-provider/model>
+```
+
+The profile is configured on `openai-codex` with a model the current ChatGPT plan no longer entitles (`gpt-5.5`, `gpt-5.4`, `gpt-5.3-codex` were all rejected in October 2026). The user sees normal-looking answers because Hermes falls back to another provider on **every single request** — the only trace is a `Fallback activated: gpt-5.5 → …` line in `agent.log`. The configured primary provider is effectively never used, and the subscription you are paying for is bypassed.
+
+This is the dangerous cousin of Pattern B: the fallback chain that normally protects you silently masks a permanent configuration error.
+
+### Fix
+
+Switch the profile to a model the plan does entitle. In October 2026 these were `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-6-sol`, and `gpt-6.1-sol`:
+
+```yaml
+model:
+  default: gpt-6.1-sol
+  provider: openai-codex
+```
+
+### Verification
+
+Confirm the first API call actually goes to the primary provider:
+
+```bash
+grep -E 'API call #1' <profile>/logs/agent.log | tail
+# expected: provider=openai-codex on call #1
+```
+
+and that no new `Fallback activated` / entitlement-rejection lines appear for that profile.
+
+### Durable mitigation
+
+Add `Fallback activated` and entitlement-rejection strings to log monitoring. Silent fallback converts a hard, visible error into a slow, invisible configuration drift — the only reliable detector is the log line.
+
 ## Debug checklist
 
 1. Check whether the error is Pattern A, Pattern B, or Pattern C:
@@ -191,7 +232,8 @@ For critical scheduled fleets, consider a small token-warmth job that periodical
 3. If only no-first-byte errors appear, verify fallback health rather than repeatedly re-authing Codex.
 4. If `401` or `token_expired` appears, inspect `hermes auth list` and re-auth `openai-codex`; do not assume fallback will catch auth errors.
 5. Restart active gateway services after code or config changes.
-6. Test the profile directly:
+6. If requests keep getting answered but `agent.log` shows `Fallback activated: <primary> → …`, treat it as Pattern D: the primary is being rejected on every call (entitlement or otherwise) — fix the model/provider config instead of celebrating the resilience.
+7. Test the profile directly:
    ```bash
    hermes -p <profile> -z "Reply only with: TEST OK" -m gpt-5.5 --provider openai-codex
    ```

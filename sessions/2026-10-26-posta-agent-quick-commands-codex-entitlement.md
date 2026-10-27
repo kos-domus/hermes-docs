@@ -2,7 +2,7 @@
 title: "Hermes: update a v0.22.5, quick commands per-profilo in multiplex, agente Posta (Gmail read-only via MCP isolato), entitlement Codex e rotazione OAuth"
 date: "2026-10-26"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["configuration", "security", "mcp", "multi-agent", "troubleshooting", "automation"]
 session_type: "hermes"
 client: ""

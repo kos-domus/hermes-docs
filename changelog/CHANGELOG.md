@@ -2,6 +2,19 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-27
+
+- **Added**: gateway-update-procedure (guides) — safe gateway update sequence: stop gateway → `hermes update --yes --backup --no-gateway-restart` → wait for WhatsApp bridge port release (~90 s) → start → verify "Connected to Telegram" / "Bridge started"; updater rewrites the systemd unit but drop-in overrides survive; config schema v50→v52 auto-migrated across 9 profiles.
+- **Added**: quick-commands (reference) — exec-type quick commands (no LLM, 30 s timeout): multiplex gotcha (`quick_commands` read ONLY from main profile config under `multiplex_profiles: true`; access rules per profile via `allow_admin_from`/`user_allowed_commands`), `get_command` rejects names containing `/`, no arguments, YAML 1.1 `on`/`off` quoting trap.
+- **Added**: hardened-read-only-agent (guides) — the "Posta" pattern for agents reading untrusted input: minimal profile (`--no-skills`, no terminal/files/web/memory) + single fixed-tool MCP stdio server (zero deps, hard-wired read subcommands) + dedicated system user with exact-command sudoers + provider confinement (`fallback_providers: []`, all `auxiliary.*` pinned to main) + retention/DM-allowlist hygiene; red-team prompt-injection validated.
+- **Updated**: codex-gpt55-errors (v2→v3) — new Pattern D: ChatGPT-plan entitlement rejection on `openai-codex` (gpt-5.5/5.4/5.3-codex rejected) hidden by silent per-request fallback, only visible as `Fallback activated` in agent.log; fix is switching to entitled models (gpt-6.1-sol), durable mitigation is monitoring the fallback line.
+- **Updated**: gws-profile-credentials (v1→v2) — OAuth client secret rotation order (add secret to the EXISTING client, update every config, re-login everywhere, only then delete the old one; secret lives inside `credentials.enc`, no `gws auth import`, delete `token_cache.json` after re-login) + consent-screen Gmail checkbox trap and `403 serviceusage.services.use` → IAM Service Usage Consumer fix.
+- **Session processed**: sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md (status ready → processed). Docs touched: 5 (3 added, 2 updated). docs/index.yaml regenerated: 30 → 33 docs.
+- **Repair**: hermes-0213-remote-gateway-patch-release frontmatter realigned to index (version 1→2, last_updated 2026-09-16→2026-09-22) — pre-existing drift from the 2026-09-22 run, which updated the doc body and the index entry but forgot the file frontmatter. No content change.
+- **Upstream check — STABLE**: GitHub stable remains **v0.22.5** (Latest, published 2026-10-23; no new release today). Local at v0.22.5+197.gcb757fa.dirty.
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
+
 ## 2026-10-26
 
 - **No sessions to process today** — zero sessions with status: ready (all 8 sessions status: processed; last session 2026-06-09). No docs or index changes (skip contract: zero churn).

@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-10-28
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested yesterday). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE**: GitHub stable remains at **v0.22.5** (Latest, published 2026-10-23; no new release today). Local at v0.22.5+197.gcb757fa.dirty (in sync).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; processing.log updated.
+
 ## 2026-10-27
 
 - **Added**: gateway-update-procedure (guides) — safe gateway update sequence: stop gateway → `hermes update --yes --backup --no-gateway-restart` → wait for WhatsApp bridge port release (~90 s) → start → verify "Connected to Telegram" / "Bridge started"; updater rewrites the systemd unit but drop-in overrides survive; config schema v50→v52 auto-migrated across 9 profiles.

@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-03
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE ADVANCE**: GitHub stable advanced to **v0.22.6** (Latest, published 2026-11-02T17:18:36Z, prerelease=false; the 2026-11-02 morning run correctly still saw v0.22.5 — release landed in the afternoon). Patch release rolling up the window since v0.22.5: 3,448 non-merge commits across 4,316 changed files (+248,579/−94,077), 776 merged PRs, 385 closed issues. Highlights listed in the release body: `hermes webapp` (gateway-served webapp + Desktop Web Access pane), `/model reset` (clears a session's model pin without losing history), per-skill locks against autonomous writes (Desktop Capabilities pane), opt-in prepared compaction (`compression.prepare_ahead`), `hermes cron cancel` + per-job missed-run policy + Stop button in the Desktop cron editor, `/delegation` choices saved for the next session, `hermes migrate` (Grok Bot / OpenBot users), opt-in OS-keychain storage for the vault key, `requires_hermes` enforced at plugin install/update, agent-picked ElevenLabs voices in `text_to_speech`, `pre_llm_call` hook (can block a turn before inference), Desktop group chat rename/disband/mentions/attachment paste, Telegram video notes, Slack emoji reactions in thread context, resumable downloads in the package manager. Full curated notes ship with v0.23.0.
+- **Local install**: still v0.22.5+197.gcb757fa.dirty — now BEHIND the new stable ("Update available" per `hermes --version`). No upgrade performed by this run (docs cycle never touches the install).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list` + `gh release view v0.22.6`; local via `hermes --version`; daily-elaboration.log updated.
+
 ## 2026-11-02
 
 - **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).

@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-04
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE ADVANCE**: GitHub stable advanced to **v0.22.7** (Latest, published 2026-11-03T21:53:16Z, i.e. after the 2026-11-03 morning run which correctly saw v0.22.6). Patch release rolling up the window since v0.22.6: 581 non-merge commits across 554 changed files (+24,012/−3,144), 174 merged PRs, 29 closed issues (measured at commit b200f5bc60e). Features listed in the release body (intentionally undocumented until curated notes): opt-in lead routing for Desktop Group Chats (Lead badge on room header), cron jobs posting into Group Chats, room purpose and shared notes, group rooms in one chat column with live member state, pinned Kanban boards as quick-switch tabs, TeX diagram labels + mermaid rendered via Pele, Desktop update error box showing failed update output with report link, Web Access naming the active step with running clock, Telegram on Team Gateway via shared-bot account linking, opt-in Slack thread_followup_silence for unaddressed thread replies, Daybreak switch for catalog-listed ChatGPT subscription models, new plugin-catalog entries. Full curated notes ship with v0.23.0.
+- **Local install**: still v0.22.5+197.gcb757fa.dirty — now two stables behind (v0.22.6, v0.22.7); "Update available" per `hermes --version`. No upgrade performed by this run (docs cycle never touches the install).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list` + `gh release view v0.22.7`; local via `hermes --version`; daily-elaboration.log updated.
+
 ## 2026-11-03
 
 - **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).

@@ -1,5 +1,5 @@
-generated_at: '2026-10-27'
-doc_count: 33
+generated_at: '2026-11-06'
+doc_count: 34
 categories:
 - getting-started
 - guides
@@ -338,6 +338,27 @@ docs:
   last_updated: '2026-09-25'
   version: 1
   hermes_version_min: 0.21.5
+- slug: hermes-023-hearth-release
+  title: Hermes Agent 0.23.0 Hearth Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - minor-release
+  - gateway
+  - webapp
+  - browser-tools
+  - delegation
+  - plugins
+  - skills
+  - mcp
+  - group-chats
+  - cron
+  - security
+  - performance
+  path: docs/reference/hermes-023-hearth-release.md
+  last_updated: '2026-11-06'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

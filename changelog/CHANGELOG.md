@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-07
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE UNCHANGED**: GitHub stable remains at **v0.23.0 "The Hearth Release"** (Latest, published 2026-11-05T21:32:33Z; no new release today; ingested yesterday as docs/reference/hermes-023-hearth-release.md). Local still v0.22.5+197.gcb757fa.dirty — three stables behind (v0.22.6, v0.22.7, v0.23.0); "Update available" per `hermes --version`. No upgrade performed by this run (docs cycle never touches the install).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; daily-elaboration.log updated.
+
 ## 2026-11-06
 
 - **Added**: hermes-023-hearth-release — reference doc for upstream minor **v0.23.0 "The Hearth Release"** (tag `v0.23.0`, published 2026-11-05T21:32:33Z, i.e. after the 11-05 morning run which correctly saw v0.22.7). Covers breaking changes (built-in `browser_*` tools removed — `browser_exec` only; Electron 44 drops macOS 11/12 and 32-bit Windows; `hermes mcp serve` → `hermes mcp-serve` plugin; built-in skills 58→44 with the `microsoft-office` merge; Webapp off by default), single-gateway session ownership, the Webapp, `/rewind`, multi-gateway Desktop, Bot Mode lead routing, plugin auto-update, MCP tool costs and per-chat spend limits, pluggable delegation, `hermes cron cancel`, `hermes curator lock`, secret-masking/approval-gate hardening, and the performance numbers. This is the curated-notes minor the 2026-11-04 entry deferred to ("Full curated notes ship with v0.23.0"); it rolls up and fully documents v0.22.1–v0.22.7. Ingested upstream-sourced per the established release-doc pattern (no ready sessions today).

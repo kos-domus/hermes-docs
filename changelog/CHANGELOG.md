@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-08
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE UNCHANGED**: GitHub stable remains at **v0.23.0 "The Hearth Release"** (Latest, published 2026-11-05T21:32:33Z; no new release today, third consecutive run at v0.23.0; already ingested 2026-11-06 as docs/reference/hermes-023-hearth-release.md). Local still v0.22.5+197.gcb757fa.dirty — three stables behind (v0.22.6, v0.22.7, v0.23.0); "Update available" per `hermes --version`. No upgrade performed by this run (docs cycle never touches the install).
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version`; daily-elaboration.log updated.
+
 ## 2026-11-07
 
 - **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).

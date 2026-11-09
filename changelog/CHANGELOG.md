@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-09
+
+- **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).
+- **Upstream check — STABLE UNCHANGED**: GitHub stable remains at **v0.23.0 "The Hearth Release"** (Latest, published 2026-11-05T21:32:33Z; no new release today, fourth consecutive run at v0.23.0; already ingested 2026-11-06 as docs/reference/hermes-023-hearth-release.md).
+- **External upgrade detected — LOCAL NOW CURRENT**: the install moved from v0.22.5+197.gcb757fa.dirty to **v0.23.0** between runs. Evidence triad: (1) install-repo reflog shows `checkout: moving from main to 2bd378ed1b8d` at 2026-11-08 08:18:12 +0100 — yesterday, ~32 min AFTER the 11-08 docs run, which correctly reported the old version; (2) `hermes --version` now prints `v0.23.0 (2026.9.24) · stable · local 2bd378ed1b8d` with no "Update available" line; (3) `git rev-parse HEAD` == `v0.23.0^{commit}` (both 2bd378ed1b8d) — behind-tag 0, annotated-tag object dereferenced per the known trap; gateway restarted 2026-11-09 05:37:05 CET. Drift identity holds: behind-tag 0 + tag..main 1674 = behind-main 1674 (normal upstream velocity past a 4-day-old tag). Local was three stables behind as of yesterday, now exactly at the latest stable. No upgrade performed by this run (docs cycle never touches the install). Fleet-relevant: v0.23.0 breaking changes now live in this install (browser_* tools removed, `hermes mcp-serve`, skills 58→44, Webapp off by default) — see docs/reference/hermes-023-hearth-release.md.
+- **Environment note**: gitleaks passed cleanly (no leaks).
+- **Sources**: no ready session files; upstream verified via `gh release list`; local via `hermes --version` + install-repo git reflog/rev-parse/rev-list; daily-elaboration.log updated.
+
 ## 2026-11-08
 
 - **No sessions to process today** — zero sessions with status: ready (all 9 sessions status: processed; last session 2026-10-26, ingested 2026-10-27). No docs or index changes (skip contract: zero churn).

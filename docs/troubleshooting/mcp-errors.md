@@ -5,8 +5,9 @@ category: "troubleshooting"
 tags: ["mcp", "mcp-servers", "oauth", "troubleshooting", "timeout"]
 sources:
   - "sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md"
-last_updated: "2026-05-27"
-version: 1
+  - "sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md"
+last_updated: "2026-11-10"
+version: 2
 hermes_version_min: "0.14.0"
 ---
 
@@ -163,6 +164,28 @@ The profile's gateway service has not reloaded the config, or the config file ha
    systemctl --user restart hermes-gateway.service
    ```
 3. For passive profiles, no restart is needed — config is read on subprocess spawn.
+
+## Custom MCP server stalls for seconds on hostile HTML
+
+### Symptom
+
+A read tool on a purpose-built MCP stdio server takes seconds to return on a normal-size message: a 34 KB HTML body required 16.6 s.
+
+### Cause
+
+A regex with cubic backtracking cost was applied to the HTML body. Message bodies are attacker-controlled input — the complexity of the transform, not the size, is the problem.
+
+### Fix
+
+1. Replace the regex pass with a linear parser — the standard library's `html.parser` is sufficient.
+2. Truncate the input **before** any transformation.
+3. Enforce a timeout on the whole operation.
+
+A "plan B" of truncating at a large threshold (e.g. 256 KB) does **not** fix this class: a 34 KB input was already pathological. Truncation bounds size, not complexity — the transform itself must be linear.
+
+### Verification
+
+Build an adversarial corpus (nested tags, malformed attributes, entity floods) up to extreme sizes. Reference result: 84 combinations up to 25 MB, worst case 2.04 s. Run the same corpus against the **old implementation as a negative control** — it must fail.
 
 ## Related docs
 

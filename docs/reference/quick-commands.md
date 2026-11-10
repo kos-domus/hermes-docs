@@ -12,8 +12,9 @@ tags:
 - access-control
 sources:
 - sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
-last_updated: '2026-10-27'
-version: 1
+- sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
+last_updated: '2026-11-10'
+version: 2
 hermes_version_min: 0.22.0
 ---
 # Quick Commands Reference (exec, no LLM)
@@ -68,6 +69,8 @@ telegram:
 ```
 
 These fields are read by `gateway/slash_access.py` and bridged into the profile `extra` data at runtime.
+
+**Group chats authorize per chat, not per person.** In a WhatsApp group, Hermes applies the group's authorization to every member: commands allowed in the group are runnable by anyone in it. Do not treat group membership as an identity boundary — group-granted commands are group-public, so keep destructive quick commands out of group-scoped access.
 
 ### Testing rule
 

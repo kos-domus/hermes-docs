@@ -8,8 +8,9 @@ sources:
   - "upstream:https://hermes-agent.nousresearch.com/docs/user-guide/secrets/onepassword"
   - "upstream:https://hermes-agent.nousresearch.com/docs/user-guide/secrets/bitwarden"
   - "upstream:https://github.com/NousResearch/hermes-agent/issues/36949"
-last_updated: "2026-08-31"
-version: 1
+  - "sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md"
+last_updated: "2026-11-10"
+version: 2
 hermes_version_min: "0.19.0"
 ---
 
@@ -168,6 +169,7 @@ See [Building a Secret Source Plugin](https://hermes-agent.nousresearch.com/docs
 - **Bootstrap token protection**: the vault's own access token is protected — no source may overwrite it. If you rotate it, use `hermes secrets <source> token`.
 - **Resolution timing**: secrets resolve at process startup, after `~/.hermes/.env` loads. A cron job or gateway restart picks up rotations; a long-running process does not until restart.
 - **Secret-source env vars reach stdio MCP servers** (0.20.0+) — vault-injected keys are available to MCP server processes, scoped per profile home.
+- **Boot ordering (DNS race)**: at reboot, services that read secrets from 1Password can fail on first start because DNS is not up yet. They self-recover within seconds, but a sentinel/monitor fires one alarm per service. `systemd-run` probe units launched for testing feed the same alert channel — expect the noise, and distinguish boot races from real outages before escalating.
 
 ## Related docs
 

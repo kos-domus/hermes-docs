@@ -12,8 +12,9 @@ tags:
 - multiplex
 sources:
 - sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
-last_updated: '2026-10-27'
-version: 1
+- sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
+last_updated: '2026-11-10'
+version: 2
 hermes_version_min: 0.22.0
 ---
 # Safe Gateway Update Procedure
@@ -68,6 +69,14 @@ If either is missing, stop and re-check step 3 — a port race usually shows up 
 - **Drop-in overrides survive.** A drop-in directory such as `hermes-gateway.service.d/` (for example, one that renders secrets into the service environment) is not touched by the updater and keeps being applied.
 
 This is the reason to put host-specific service customizations in a drop-in (`systemctl --user edit hermes-gateway.service`) rather than in the unit file itself: drop-ins survive updates, unit-file edits do not.
+
+## Post-update service sweep: catch jobs still on the old runtime
+
+The updater migrates the gateway, but **cron jobs and services launched with absolute paths keep running against the pre-upgrade venv** — and keep loading its (now aging) dependencies. After a major runtime upgrade:
+
+1. Sweep scheduled jobs for launchers pinned to the old venv/version.
+2. Migrate each one with a **systemd drop-in** pointing at the new launcher (drop-ins survive later updates).
+3. **Rename the old venv, do not delete it**, and keep it for an observation week so a rollback is one `mv` away.
 
 ## Harmless post-update warnings
 

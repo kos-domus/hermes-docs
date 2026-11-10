@@ -2,7 +2,7 @@
 title: "Hermes: residui di sicurezza dopo la v0.23 e disegno di un agente email che scrive senza LLM"
 date: "2026-11-09"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["security", "permissions", "mcp", "multi-agent", "automation", "testing", "troubleshooting"]
 session_type: "hermes"
 client: ""

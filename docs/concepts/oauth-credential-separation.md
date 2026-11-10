@@ -15,8 +15,9 @@ sources:
 - sessions/2026-05-25-hermes-provider-chain-v4-sub-oauth-capture-fix.md
 - sessions/2026-05-26-mcp-fleet-propagation-sentry-oauth-3-profile-timeout-patch.md
 - sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
-last_updated: '2026-06-09'
-version: 3
+- sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
+last_updated: "2026-11-10"
+version: 4
 hermes_version_min: 0.14.0
 ---
 # OAuth Credential Separation in Hermes
@@ -133,6 +134,10 @@ gws auth login
 ```
 
 This is the same operational principle as Hermes provider and MCP OAuth: credential files are scoped to the runtime that owns their refresh and encryption context.
+
+## Gmail scopes do not isolate actions: the boundary is the token owner
+
+`gmail.modify` also permits sending and reading. A scope name is not an action allowlist, so "the write path only has `modify`" provides no write confinement. The boundary that holds is **which process owns the token**: pair each capability with a dedicated Unix user that owns its own OAuth credential, so a token's reach equals its process's reach. Applied concretely in the [Deterministic Write Engine](../guides/deterministic-write-engine.md) pattern.
 
 ## Security rule
 

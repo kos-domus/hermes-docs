@@ -2,7 +2,7 @@
 title: "Hermes Agent 0.21.3 Remote-Gateway Patch Release Reference"
 slug: "hermes-0213-remote-gateway-patch-release"
 category: "reference"
-tags: ["release-notes", "patch-release", "remote-gateway", "desktop", "oauth", "session-expiry", "state-db", "cloud", "json-rpc", "providers", "desktop", "cli"]
+tags: ["release-notes", "patch-release", "remote-gateway", "desktop", "oauth", "session-expiry", "state-db", "cloud", "json-rpc", "providers", "cli"]
 sources:
   - "upstream:https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.14"
   - "upstream:https://github.com/NousResearch/hermes-agent/compare/v2026.9.11...v2026.9.14"

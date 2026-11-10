@@ -13,8 +13,9 @@ tags:
 - profiles
 sources:
 - sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
-last_updated: '2026-10-27'
-version: 1
+- sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
+last_updated: '2026-11-10'
+version: 2
 hermes_version_min: 0.22.0
 ---
 # Build a Hardened Read-Only Agent (Isolated MCP Pattern)
@@ -94,8 +95,18 @@ Send the agent a message crafted as a prompt-injection attack: instructions to e
 2. Nothing is executed (nothing to execute — verify no tool call happened besides the read).
 3. The attacker's domain appears nowhere in the agent logs (no exfiltration, not even a fetch attempt).
 
+## Next phase: writes without a model
+
+The read-only agent deliberately has no write path. When the data source needs automated writes (labels, archiving), do not extend this agent: route writes through a deterministic, LLM-free engine under its own Unix user and OAuth credential — see [Deterministic Write Engine for Untrusted-Input Agents](deterministic-write-engine.md).
+
+Two cutover cautions learned while extending this pattern:
+
+- **Removing a sudoers rule does not revoke already-running processes** — an isolation cutover must also stop the live MCP servers launched under the old rule.
+- When exclusive control of a token cannot be demonstrated (old copies may exist), **redo the OAuth grant** instead of reusing the credential.
+
 ## Related docs
 
+- [Deterministic Write Engine for Untrusted-Input Agents](deterministic-write-engine.md)
 - [MCP Server Setup Reference](../reference/mcp-server-setup.md)
 - [Profile-scoped Google Workspace Credentials](../troubleshooting/gws-profile-credentials.md)
 - [Capability Matrix Allowlist](capability-matrix-allowlist.md)

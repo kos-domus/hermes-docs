@@ -1,5 +1,5 @@
-generated_at: '2026-11-06'
-doc_count: 34
+generated_at: '2026-11-10'
+doc_count: 36
 categories:
 - getting-started
 - guides
@@ -63,6 +63,22 @@ docs:
   last_updated: '2026-06-10'
   version: 1
   hermes_version_min: 0.16.0
+- slug: deterministic-write-engine
+  title: Deterministic Write Engine for Untrusted-Input Agents
+  category: guides
+  tags:
+  - security
+  - least-privilege
+  - automation
+  - gmail
+  - oauth
+  - testing
+  - mutation-testing
+  - shadow-mode
+  path: docs/guides/deterministic-write-engine.md
+  last_updated: '2026-11-10'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: elevenlabs-tts
   title: Configure ElevenLabs TTS for a Hermes Profile
   category: guides
@@ -89,8 +105,8 @@ docs:
   - telegram
   - multiplex
   path: docs/guides/gateway-update-procedure.md
-  last_updated: '2026-10-27'
-  version: 1
+  last_updated: '2026-11-10'
+  version: 2
   hermes_version_min: 0.22.0
 - slug: hardened-read-only-agent
   title: Build a Hardened Read-Only Agent (Isolated MCP Pattern)
@@ -105,8 +121,8 @@ docs:
   - gws
   - profiles
   path: docs/guides/hardened-read-only-agent.md
-  last_updated: '2026-10-27'
-  version: 1
+  last_updated: '2026-11-10'
+  version: 2
   hermes_version_min: 0.22.0
 - slug: mcp-fleet-propagation
   title: Propagate MCP Servers Across a Hermes Profile Fleet
@@ -147,8 +163,8 @@ docs:
   - configuration
   - profiles
   path: docs/guides/secrets-vault-integration.md
-  last_updated: '2026-08-31'
-  version: 1
+  last_updated: '2026-11-10'
+  version: 2
   hermes_version_min: 0.19.0
 - slug: config-migration-v24
   title: Config Migration v23 to v24
@@ -359,6 +375,25 @@ docs:
   last_updated: '2026-11-06'
   version: 1
   hermes_version_min: 0.23.0
+- slug: hermes-0231-plugin-catalog-patch-release
+  title: Hermes Agent 0.23.1 Plugin-Catalog Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - plugins
+  - plugin-catalog
+  - rollup
+  - tui
+  - group-chats
+  - webapp
+  - plugin-api
+  - cli
+  - security
+  path: docs/reference/hermes-0231-plugin-catalog-patch-release.md
+  last_updated: '2026-11-10'
+  version: 1
+  hermes_version_min: 0.23.1
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference
@@ -398,8 +433,8 @@ docs:
   - whatsapp
   - access-control
   path: docs/reference/quick-commands.md
-  last_updated: '2026-10-27'
-  version: 1
+  last_updated: '2026-11-10'
+  version: 2
   hermes_version_min: 0.22.0
 - slug: fleet-learner-architecture
   title: Fleet Learner Architecture
@@ -427,8 +462,8 @@ docs:
   - profiles
   - gws
   path: docs/concepts/oauth-credential-separation.md
-  last_updated: '2026-06-09'
-  version: 3
+  last_updated: '2026-11-10'
+  version: 4
   hermes_version_min: 0.14.0
 - slug: self-improvement-agent-safety
   title: Self-Improvement Agent Safety
@@ -514,8 +549,8 @@ docs:
   - troubleshooting
   - timeout
   path: docs/troubleshooting/mcp-errors.md
-  last_updated: '2026-05-27'
-  version: 1
+  last_updated: '2026-11-10'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: provider-and-gateway-errors
   title: Provider and Gateway Errors

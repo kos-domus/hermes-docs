@@ -9,8 +9,9 @@ sources:
   - "upstream:https://hermes-agent.nousresearch.com/docs/user-guide/secrets/bitwarden"
   - "upstream:https://github.com/NousResearch/hermes-agent/issues/36949"
   - "sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md"
-last_updated: "2026-11-10"
-version: 2
+  - "sessions/2026-11-10-rotazione-chiavi-rete-e-memoria-fetta-1.md"
+last_updated: "2026-11-11"
+version: 3
 hermes_version_min: "0.19.0"
 ---
 
@@ -162,6 +163,45 @@ Both knobs live in the orchestrator, so they apply to every source — bundled a
 Third-party secret managers ship as **standalone plugins**, not core PRs. A backend subclasses `agent.secret_sources.base.SecretSource` (one required method: `fetch(cfg, home_path) -> FetchResult`) and registers via `ctx.register_secret_source(MySource())` in the plugin's `register(ctx)`. The orchestrator owns precedence, conflict handling, timeouts, and provenance — the source only fetches. The bundled set is deliberately closed (same policy as memory providers): Bitwarden, 1Password, and the command helper ship in-tree; everything else (Infisical, Proton Pass, HashiCorp Vault, AWS Secrets Manager, OS keystores) belongs in plugin repos.
 
 See [Building a Secret Source Plugin](https://hermes-agent.nousresearch.com/docs/developer-guide/secret-source-plugin).
+
+## Rotating provider keys across a fleet
+
+Vault integration makes rotation *central*, but a fleet-wide rotation still has a concrete
+sequence. Field-tested with a Gemini + Z.AI rotation after a backup was found containing plaintext
+keys:
+
+1. **Update the key in the same vault item** the `op://` references point at — templates keep
+   resolving with zero churn. Never fork a new item unless you enjoy chasing every reference.
+2. **Smoke-test the new key against the exact endpoint the profile uses.** Provider-side key
+   *types* can differ per endpoint (Z.AI: a key created under "API Keys" returns `200` on the
+   normal API but `429 Insufficient balance` on the Coding Plan endpoint — see
+   [Provider and Gateway Errors](../troubleshooting/provider-and-gateway-errors.md)).
+3. **Re-render the secrets environment and restart the gateway.** Secrets resolve at startup, so
+   the running process keeps the old key until restarted.
+4. **Sweep fixed copies nothing regenerates.** Profiles may hold env copies that no render script
+   produces (e.g. a staging `.env` or a self-improve profile's own `secrets.env`). Grep the
+   profiles tree for the env var name and update every copy in the same pass — these are the
+   copies that survive a "clean" rotation.
+5. **Verify activation without reading the value.** Compare a fingerprint of the live process
+   environment (e.g. a hash of the relevant vars) against the expected one. Never print the key
+   itself into a session or log.
+6. **Revoke the old key and confirm rejection.** A rotation is not done until the old key is dead:
+   after revocation, a probe with the old key must fail (observed: Z.AI → `401`, Gemini → `400`).
+
+### Post-rotation hygiene
+
+- **Remove revoked keys from profile snapshots** ("photographs" of a profile taken for restore
+  purposes) — otherwise the next restore reintroduces a dead key that breaks provider auth.
+- **Delete backups that contain plaintext keys**: day-backups of profile trees, old `.env` files
+  inside backups, and shell snapshots that captured the environment (they carry every exported
+  secret).
+- **Periodically sweep profile HOMEs for agent-copied secrets.** An agent running with a profile
+  `HOME` override that cannot find a credential file will sometimes "fix" a failing script by
+  **copying the secrets into its own HOME** (observed: a cron-run agent copied a 1Password token
+  and orchestrator secrets into `profiles/<name>/home/` to make a script work). Those copies sit
+  outside the vault, outside rotation, and outside every hygiene rule — search for them
+  regularly. If the values never appeared in sessions, logs, or `state.db`, deletion is enough;
+  rotate only on evidence of exposure.
 
 ## Gotchas
 

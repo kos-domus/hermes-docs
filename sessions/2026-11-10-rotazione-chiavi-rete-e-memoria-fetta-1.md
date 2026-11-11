@@ -2,7 +2,7 @@
 title: "Rete di casa, rotazione chiavi Gemini/Z.AI, profili su glm-5.3, firecrawl con auto-update spento, memoria fetta 1 e doppioni SpesaBot"
 date: "2026-11-10"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["security", "configuration", "troubleshooting", "memory", "multi-agent", "automation", "testing"]
 session_type: "hermes"
 client: ""

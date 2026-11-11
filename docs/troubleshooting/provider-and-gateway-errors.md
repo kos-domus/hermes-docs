@@ -19,8 +19,9 @@ sources:
 - sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md
 - sessions/2026-06-04-selfimprove-fleet-learner-tier1-fabric-spike.md
 - sessions/2026-06-09-fleet-outage-codex401-gws-reauth.md
-last_updated: '2026-06-09'
-version: 5
+- sessions/2026-11-10-rotazione-chiavi-rete-e-memoria-fetta-1.md
+last_updated: '2026-11-11'
+version: 6
 hermes_version_min: 0.14.0
 ---
 # Provider and Gateway Errors
@@ -166,6 +167,55 @@ providers:
     key_env: ZAI_API_KEY
     default_model: glm-5.1
 ```
+
+### A fresh key can still fail: API keys and Coding Plan keys are separate
+
+Since **2026-10-16**, Z.AI issues API keys and Coding Plan keys from **different pages**. A key
+created under "API Keys" returns `200` on the normal API endpoint but fails on the Coding Plan
+endpoint with:
+
+```text
+HTTP 429 — Insufficient balance   (on api/coding/paas/v4)
+```
+
+This makes a key rotation look like a billing problem. The old key keeps working on both, so the
+split is silent until the old key is revoked.
+
+### Fix
+
+- Create the rotation key from the **Coding Plan page**, not the "API Keys" page.
+- Smoke-test before rendering it into any environment: a request to
+  `coding/paas/v4/chat/completions` must return `200` with the new key.
+- Only then revoke the old key and confirm rejection (see
+  [Secrets Vault Integration](../guides/secrets-vault-integration.md) for the full fleet rotation
+  checklist).
+
+## `Gateway network "error storm" + nightly secret-load failures`
+
+Exact observed pattern:
+
+```text
+Gateway logging a sustained storm of network errors towards Telegram (hours)
+Nightly pipelines degrading: 1Password unreachable → secrets not loaded
+```
+
+### Cause
+
+Not a Hermes, Telegram, or vault problem: a **physical network fault**. In the source case a mesh
+satellite node had fallen back from Ethernet to Wi-Fi backhaul, degrading the whole uplink for
+roughly 16 hours; the gateway errors and the vault-load failures were the same window.
+
+### Diagnosis
+
+Ping multiple distinct devices (router, mesh nodes, internet). **Identical bad latency on devices
+that share no component except one link means that shared link is the fault** — e.g. every far
+device answering with the same ~170 ms average while near devices stay under 1 ms isolates the
+slow segment in one hop.
+
+### Fix
+
+Restore the shared link (in the source case: move every mesh node back to Ethernet). Both the
+gateway error storm and the vault-load failures clear without touching Hermes.
 
 ## `Hermes AuthError: No Codex credentials stored`
 

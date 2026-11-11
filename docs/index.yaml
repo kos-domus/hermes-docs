@@ -1,5 +1,5 @@
-generated_at: '2026-11-10'
-doc_count: 36
+generated_at: '2026-11-11'
+doc_count: 37
 categories:
 - getting-started
 - guides
@@ -105,8 +105,8 @@ docs:
   - telegram
   - multiplex
   path: docs/guides/gateway-update-procedure.md
-  last_updated: '2026-11-10'
-  version: 2
+  last_updated: '2026-11-11'
+  version: 3
   hermes_version_min: 0.22.0
 - slug: hardened-read-only-agent
   title: Build a Hardened Read-Only Agent (Isolated MCP Pattern)
@@ -163,9 +163,23 @@ docs:
   - configuration
   - profiles
   path: docs/guides/secrets-vault-integration.md
-  last_updated: '2026-11-10'
-  version: 2
+  last_updated: '2026-11-11'
+  version: 3
   hermes_version_min: 0.19.0
+- slug: third-party-cli-auto-update-containment
+  title: Containing Third-Party CLI Auto-Update Behavior
+  category: guides
+  tags:
+  - security
+  - third-party
+  - supply-chain
+  - configuration
+  - systemd
+  - gateway
+  path: docs/guides/third-party-cli-auto-update-containment.md
+  last_updated: '2026-11-11'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: config-migration-v24
   title: Config Migration v23 to v24
   category: reference
@@ -520,8 +534,8 @@ docs:
   - scheduling
   - security
   path: docs/troubleshooting/cron-script-errors.md
-  last_updated: '2026-06-02'
-  version: 1
+  last_updated: '2026-11-11'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: gws-profile-credentials
   title: Profile-scoped Google Workspace Credentials
@@ -566,8 +580,8 @@ docs:
   - mcp
   - codex
   path: docs/troubleshooting/provider-and-gateway-errors.md
-  last_updated: '2026-06-09'
-  version: 5
+  last_updated: '2026-11-11'
+  version: 6
   hermes_version_min: 0.14.0
 - slug: xai-oauth-remote-session
   title: xAI OAuth on Remote SSH Sessions

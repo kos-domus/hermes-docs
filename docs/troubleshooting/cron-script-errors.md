@@ -5,8 +5,9 @@ category: "troubleshooting"
 tags: ["cron", "scripts", "troubleshooting", "profiles", "scheduling", "security"]
 sources:
   - "sessions/2026-06-01-cron-script-containment-fix.md"
-last_updated: "2026-06-02"
-version: 1
+  - "sessions/2026-11-10-rotazione-chiavi-rete-e-memoria-fetta-1.md"
+last_updated: "2026-11-11"
+version: 2
 hermes_version_min: "0.14.0"
 ---
 
@@ -108,6 +109,28 @@ chmod +x ~/.hermes/profiles/<profile>/scripts/<path-to-wrapper>
 ```
 
 Do not point the cron `script` field directly at the external canonical script. Keep the declared Hermes entrypoint profile-local.
+
+## `fire ownership lost` on overlapping `hermes cron run` relaunches
+
+### Symptom
+
+A manually-triggered cron run logs a `fire ownership lost` error for the job (observed on a
+`hermes-docs` elaboration job).
+
+### Cause
+
+Two `hermes cron run` invocations for the same job overlapped: the first was still working when a
+second relaunch (or the first invocation being killed by a short CLI timeout) stole the fire
+ownership. The scheduler hands the job's "fire" to one runner at a time; a killed or superseded
+runner loses it.
+
+### Fix
+
+- **Do not relaunch `hermes cron run` with a short timeout** — killing the CLI mid-run is what
+  orphans the fire and invites a second overlapping launch.
+- Let a running invocation finish; check the job's `last_status` afterwards. In the observed case
+  the first run completed its work anyway and the output was reconciled — the error was noise from
+  the overlap, not lost work.
 
 ## Diagnostic checklist
 

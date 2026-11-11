@@ -13,8 +13,9 @@ tags:
 sources:
 - sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
 - sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
-last_updated: '2026-11-10'
-version: 2
+- sessions/2026-11-10-rotazione-chiavi-rete-e-memoria-fetta-1.md
+last_updated: '2026-11-11'
+version: 3
 hermes_version_min: 0.22.0
 ---
 # Safe Gateway Update Procedure
@@ -77,6 +78,20 @@ The updater migrates the gateway, but **cron jobs and services launched with abs
 1. Sweep scheduled jobs for launchers pinned to the old venv/version.
 2. Migrate each one with a **systemd drop-in** pointing at the new launcher (drop-ins survive later updates).
 3. **Rename the old venv, do not delete it**, and keep it for an observation week so a rollback is one `mv` away.
+
+### A service can look broken while a drop-in already fixes it
+
+Before declaring a cron service dead because its **base unit file** still points at the retired
+venv, read the **effective unit** — drop-ins included:
+
+```bash
+systemctl --user cat <unit>.service
+```
+
+A previously-applied drop-in may already redirect `ExecStart` to the new launcher, making the
+stale base unit harmless. Observed case: the base unit pointed at the retired venv, a drop-in
+launched the new one, and the service had 193 successful runs while looking "broken" in the base
+file. `systemctl --user cat` shows the merged result — always read it before touching anything.
 
 ## Harmless post-update warnings
 

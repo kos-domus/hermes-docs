@@ -2,6 +2,12 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-12
+
+- **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested yesterday). No docs touched, no `docs/index.yaml` churn (skip contract).
+- **Upstream**: stable unchanged **v0.23.1** (published 2026-11-10T01:42:15Z, 2nd run at this version; already ingested 2026-11-10 as `hermes-0231-plugin-catalog-patch-release`). Local install still v0.23.0 — 1 patch behind and still affected by the plugin-catalog 2 MiB silent-fallback issue until updated; `hermes --version` flags "Update available", not executed (docs cycle never touches the install).
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-11
 
 - **Added**: third-party-cli-auto-update-containment — guide for **containing third-party CLI auto-update behavior**: a self-updating CLI (case study: firecrawl-cli 1.25.3 → 1.29.0) downloads the next minor into a private versions directory and executes it in place, bypassing install registries, waiting periods, and admin-controlled rollouts. Covers pre-upgrade review (maintainer change, updater detection, script-free install as a safe mode), redundant disable in every knob the updater reads (tool config file `~/.firecrawl/auto-update.json` `{"disabled":true}`, `FIRECRAWL_NO_UPDATE_CHECK=1` + `FIRECRAWL_NO_AUTO_UPDATE=1` in the shell profile AND in a gateway systemd drop-in, `--ignore-scripts` install, verify the versions cache directory absent), expecting the permission classifier to block startup-file edits as "unauthorized persistence" (human authorization is the path, not a workaround), and a weekly re-check that the cache directory has not reappeared.

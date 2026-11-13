@@ -2,6 +2,12 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-13
+
+- **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11). No docs touched, no `docs/index.yaml` churn (skip contract).
+- **Upstream**: stable unchanged **v0.23.1** (Latest, published 2026-11-10T01:42:15Z, 3rd run at this version; already ingested 2026-11-10 as `hermes-0231-plugin-catalog-patch-release`). Local install still **v0.23.0** (`2bd378ed1b8d`) — 1 patch behind and still affected by the plugin-catalog 2 MiB silent-fallback issue until updated; `hermes --version` flags "Update available", not executed (docs cycle never touches the install). Watch list for v0.24.0 already recorded in the patch-release doc.
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-12
 
 - **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested yesterday). No docs touched, no `docs/index.yaml` churn (skip contract).

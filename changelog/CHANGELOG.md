@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-14
+
+- **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11). No docs touched, no `docs/index.yaml` churn (skip contract).
+- **Upstream**: stable unchanged **v0.23.1** (Latest, published 2026-11-10T01:42:15Z, 4th run at this version; already ingested 2026-11-10 as `hermes-0231-plugin-catalog-patch-release`). New since yesterday's run: canary prerelease `v0.23.1+canary.20261113T064447Z` (published 2026-11-13T08:06:48Z, `prerelease: true`) — watch signal only, not an upgrade target.
+- **External upgrade detected**: local install **v0.23.0 → v0.23.1** between runs (evidence triad: install-repo reflog checkout `2bd378ed` → `3b421578588` at 2026-11-13 14:52 CET, ~7h after yesterday's run; gateway restarted 2026-11-13 14:56 CET; `hermes --version` local hash `3b4215785882` == `v0.23.1^{commit}`, behind-tag 0, reports "Up to date"). This **closes the fleet advisory from 2026-11-10**: the install is no longer affected by the plugin-catalog 2 MiB silent-fallback issue (cap raised to 16 MiB in v0.23.1).
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-13
 
 - **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11). No docs touched, no `docs/index.yaml` churn (skip contract).

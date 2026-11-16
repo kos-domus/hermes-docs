@@ -2,6 +2,12 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-16
+
+- **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11). No docs touched, no `docs/index.yaml` churn (skip contract).
+- **Upstream**: stable unchanged **v0.23.1** (Latest, published 2026-11-10T01:42:15Z, 6th run at this version; already ingested 2026-11-10 as `hermes-0231-plugin-catalog-patch-release`). New since yesterday's run: canary prerelease `v0.23.1+canary.20261115T064406Z` (published 2026-11-15T07:52:37Z, `prerelease: true`) — watch signal only, not an upgrade target. Local install confirmed **v0.23.1** (`3b4215785882`, reports "Up to date"); no external upgrade between runs.
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-15
 
 - **Skip**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11). No docs touched, no `docs/index.yaml` churn (skip contract).

@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-18
+
+- **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.
+- **Upstream check — no change**: GitHub stable unchanged **v0.23.2** (Latest, `prerelease` not set, published 2026-11-16T20:59:18Z, 2nd run at this version; already ingested 2026-11-17 as `hermes-0232-desktop-streaming-patch-release`). New since yesterday's run: canary prerelease `v0.23.2+canary.20261117T064624Z` (published 2026-11-17T07:54:16Z) — watch signal only, not an upgrade target. Local remains **v0.23.1** (`3b4215785882`, reports "Update available") — one patch behind for the 2nd run; no external upgrade between runs.
+- **Index**: docs/index.yaml untouched (skip contract — zero Diátaxis docs changed).
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-17
 
 - **Added**: hermes-0232-desktop-streaming-patch-release — reference doc for upstream patch **v0.23.2** (tag `v0.23.2`, published 2026-11-16T20:59:18Z — blind-window advance, landed ~13h after yesterday's 07:46 run which last saw v0.23.1 as Latest; verified live via paginated releases list, release body read in full). Window v0.23.1...v0.23.2 measured at `ae2a81ccc00`: 1,989 merged PRs, 940 closed issues, 7,918 non-merge commits, 5,211 changed files (+239,733/−22,788) — roughly 3× the v0.23.1 window. Headline fixes: Desktop/TUI/Telegram reply-streaming and typed-input handling (#156545 bare `custom` provider chats send again, #156553 reply settles beside todo/memory calls, #156546 no duplicate "Recovered reply" after mid-stream crash + mid-word key-prefix rendering, #156615/#156642 no lost/scrambled typed input during Desktop start/resume, #156611 reconnect mid-reply shows the reply once and in full, #156652 Webapp Hermes-Cloud prompt to sign in to Nous Portal), and CLI exit no longer leaves a `git` process running while the startup update check waits on GitHub (#156616). Also records the deliberately-undocumented feature inventory (durable subagents that survive a gateway restart and continue on their own conversation, one prompt-cache clock per session, `hermes fallback check`, `hermes update --force` stopping gateways at once, one-time browser_vault codes entered from Telegram and Discord, opt-in shared Telegram DM threads, Gemini Interactions API by default for Gemini 3+ and Gemini 4 Carbon, fast mode for Claude Mythos 5.2, per-job cron options `wrap_response` and fresh-thread-per-run, plugin APIs `ctx.fork_session`/`ctx.redact_text()`/`ctx.register_idle_task`, compatibility shims across module moves, slimmer macOS bundle installing Chromium on first use, large plugin-catalog entry batch). Full curated notes ship with v0.24.0.

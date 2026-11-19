@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-19
+
+- **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.
+- **Upstream check — no change**: GitHub stable unchanged **v0.23.2** (Latest, `prerelease` not set, published 2026-11-16T20:59:18Z, 3rd run at this version; already ingested 2026-11-17 as `hermes-0232-desktop-streaming-patch-release`). New since yesterday's run: canary prerelease `v0.23.2+canary.20261118T064620Z` (published 2026-11-18T07:55:35Z) — watch signal only, not an upgrade target. Local remains **v0.23.1** (`3b4215785882`, reports "Update available") — one patch behind for the 3rd run; no external upgrade between runs.
+- **Index**: docs/index.yaml untouched (skip contract — zero Diátaxis docs changed).
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-18
 
 - **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.

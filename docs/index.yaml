@@ -1,5 +1,5 @@
-generated_at: '2026-11-17'
-doc_count: 38
+generated_at: '2026-11-20'
+doc_count: 39
 categories:
 - getting-started
 - guides
@@ -427,6 +427,26 @@ docs:
   last_updated: '2026-11-17'
   version: 1
   hermes_version_min: 0.23.2
+- slug: hermes-0233-prompt-cache-patch-release
+  title: Hermes Agent 0.23.3 Prompt-Cache Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - rollup
+  - prompt-caching
+  - compaction
+  - storage
+  - sqlite
+  - first-run
+  - models
+  - appimage
+  - security-bumps
+  - plugin-catalog
+  path: docs/reference/hermes-0233-prompt-cache-patch-release.md
+  last_updated: '2026-11-20'
+  version: 1
+  hermes_version_min: 0.23.3
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

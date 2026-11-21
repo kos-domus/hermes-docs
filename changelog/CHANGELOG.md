@@ -2,6 +2,13 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-21
+
+- **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.
+- **Upstream check — no change**: GitHub stable unchanged **v0.23.3** (Latest, `prerelease` not set, published 2026-11-20T00:34:38Z, 2nd run at this version; already ingested 2026-11-20 as `hermes-0233-prompt-cache-patch-release`). New since yesterday's run: canary prerelease `v0.23.3+canary.20261120T064609Z` (published 2026-11-20T07:49:17Z, ~1 min after that run's 07:48 commit — blind window again; first canary on the 0.23.3 line) — watch signal only, not an upgrade target. Local remains **v0.23.1** (`3b4215785882`, reports "Update available") — two patches behind for the 2nd run; no external upgrade between runs.
+- **Index**: docs/index.yaml untouched (skip contract — zero Diátaxis docs changed; doc_count stays 39).
+- **Sources**: none — nothing to process today.
+
 ## 2026-11-20
 
 - **Added**: hermes-0233-prompt-cache-patch-release — reference doc for upstream patch **v0.23.3** (tag `v0.23.3`, published 2026-11-20T00:34:38Z — blind-window advance, landed ~7h before this 07:45 run which last saw v0.23.2 as Latest; verified live via paginated releases list AND the tag endpoint, both `prerelease=false`). Window v0.23.2...v0.23.3 measured at `caafe5389ae`: 370 merged PRs, 60 closed issues, 1,657 non-merge commits, 3,948 changed files (+222,379 / −96,154) — roughly one fifth of the v0.23.2 window, a genuine patch. Unlike v0.23.2 the body carries **no per-issue fix list**: pure rollup plus deliberately-undocumented inventory (prompt-cache lifecycle controller with `prompt_caching.cache_ttl: auto` and 1h cache-lifecycle management, compaction archiving dropped tool results, proactive tool-result prune on by default, one-question first-run CLI setup with free tier, GPT-6.2 Astra/Sol (+Pro) on OpenRouter and Nous Portal, "Waiting on teammates" strip in Bot Chat, Linux AppImage stable per-build payload copy, storage layer split behind a persistence interface + SQLite backend, security bumps oauthlib/opentelemetry/tornado, plugin-catalog batch). Full curated notes ship with v0.24.0. Cross-checks: compare API total_commits=1,675 (1,657 non-merge + 18 merges, consistent); compare `files`=300 is the known truncation cap, body figure authoritative.

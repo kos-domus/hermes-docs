@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-24
+
+- **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.
+- **Upstream check — no change**: GitHub stable unchanged **v0.23.3** (Latest, `prerelease=false`, published 2026-11-20T00:34:38Z, now 5th run at this version; ingested 2026-11-20 as `hermes-0233-prompt-cache-patch-release`). No new canary observed since `v0.23.3+canary.20261120T064609Z` (cadence appears paused after 11-22). Local **v0.23.3** (`caafe5389ae5`, reports "Up to date"). No docs churn.
+- **Index**: docs/index.yaml untouched (skip contract — zero Diátaxis docs changed; doc_count stays 39; 39 files == 39 index entries verified).
+- **Sources**: none — nothing to process today.
+- **Security**: gitleaks passed cleanly (no leaks detected).
+
 ## 2026-11-23
 
 - **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.

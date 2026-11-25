@@ -2,6 +2,16 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-25
+
+- **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.
+- **Upstream check — NEW STABLE v0.23.4** (published 2026-11-24T08:17:06Z, ~1.5h after yesterday's 07:45 run — blind-window advance): patch rollup of the window since v0.23.3, measured at commit `8fc03744473` — 1,122 non-merge commits, 1,316 changed files (+96,873 / −6,703), 229 merged PRs, 281 closed issues (compare-API cross-check: 1,143 total = 1,122 + 21 merges; files array capped at 300, upstream's 1,316 authoritative; ~62% of the 0.23.3 window's PR count). Ingested as `docs/reference/hermes-0234-gemini4-models-patch-release.md`.
+- **Correction of 11-24's canary claim**: "cadence appears paused after 11-22" was a blind-window negative — `canary.20261123T065600Z-v0.23.3` (tag 06:56:00Z, ~10min after the 11-23 06:46Z check) and `canary.20261124T064706Z-v0.23.3` (tag 06:47:06Z, ~1min after the 11-24 check) both exist, verified via `git ls-remote --tags`. Daily canary cadence is intact; no 11-25 canary at this run's check (06:46Z — inside the historical 06:44–06:56Z tag window, expected to land after this run).
+- **Local**: unchanged v0.23.3 @ `caafe5389ae5`, now 1 stable behind v0.23.4 ("Update available — run 'hermes update'"). No external upgrade since 11-24.
+- **Index**: docs/index.yaml updated (targeted insert, no reordering): doc_count 39→40, new entry after hermes-0233 in the version-ordered release lane; 40 doc files == 40 index entries verified.
+- **Sources**: none (session queue empty) — upstream release body v0.23.4 + compare API + git ls-remote.
+- **Security**: gitleaks passed cleanly (no leaks detected).
+
 ## 2026-11-24
 
 - **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.

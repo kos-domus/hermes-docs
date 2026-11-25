@@ -1,5 +1,5 @@
-generated_at: '2026-11-20'
-doc_count: 39
+generated_at: '2026-11-25'
+doc_count: 40
 categories:
 - getting-started
 - guides
@@ -447,6 +447,25 @@ docs:
   last_updated: '2026-11-20'
   version: 1
   hermes_version_min: 0.23.3
+- slug: hermes-0234-gemini4-models-patch-release
+  title: Hermes Agent 0.23.4 Gemini-4 Models Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - rollup
+  - models
+  - gemini
+  - gateway-migration
+  - plugins
+  - desktop
+  - sandbox-approvals
+  - skills-config
+  - plugin-catalog
+  path: docs/reference/hermes-0234-gemini4-models-patch-release.md
+  last_updated: '2026-11-25'
+  version: 1
+  hermes_version_min: 0.23.4
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

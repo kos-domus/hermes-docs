@@ -5,8 +5,9 @@ category: "concepts"
 tags: ["skills", "prompting", "architecture", "agent-design", "maintenance"]
 sources:
   - "sessions/2026-05-27-skill-consolidation-codex-root-cause-master-prompt-review.md"
-last_updated: "2026-05-28"
-version: 1
+  - "sessions/2026-11-25-separazione-compartimenti-samba-apparmor.md"
+last_updated: "2026-11-26"
+version: 2
 hermes_version_min: "0.14.0"
 ---
 
@@ -43,6 +44,15 @@ SOUL.md
 ```
 
 Old procedure files can remain as redirect shims for compatibility, but they should not contain active logic.
+
+## Size budget
+
+Skills above roughly 100k characters are not fully loaded: the agent sees only a preview and must
+open the file to read more, which it rarely does unprompted. A 99k-character ops skill therefore
+behaves like a skill the agent has never read. The reference repair shrank a daily-ops skill from
+99k to 22k characters by moving stable workflow detail into lazy-loaded reference files and
+keeping the skill body to triggers, state machines, and failure modes. Treat ~100k as a hard
+ceiling and consolidate before crossing it.
 
 ## Design principles
 

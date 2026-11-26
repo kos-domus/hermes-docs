@@ -13,8 +13,9 @@ tags:
 sources:
 - sessions/2026-10-26-posta-agent-quick-commands-codex-entitlement.md
 - sessions/2026-11-09-residui-sicurezza-e-disegno-scrittura-email.md
-last_updated: '2026-11-10'
-version: 2
+- sessions/2026-11-25-separazione-compartimenti-samba-apparmor.md
+last_updated: '2026-11-26'
+version: 3
 hermes_version_min: 0.22.0
 ---
 # Quick Commands Reference (exec, no LLM)
@@ -88,6 +89,14 @@ quick_commands:
 ```
 
 must be quoted, or the name silently becomes a boolean and the command is unreachable.
+
+## Reserved built-in command names
+
+Quick command names must not collide with Hermes built-in slash commands — there is no override.
+Observed: a family profile's identity-document plugin wanted `/ts`, but Hermes already exposes
+`/ts` as an alias of the built-in `/timestamps`. The plugin shipped as `/ci`, `/tes`, `/pp`,
+`/pat` instead. When defining several quick commands at once, check each candidate name against
+the built-in command list first.
 
 ## Related docs
 

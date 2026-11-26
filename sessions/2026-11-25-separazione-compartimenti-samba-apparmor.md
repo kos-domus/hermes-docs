@@ -2,7 +2,7 @@
 title: "Compartimenti per cliente: share Samba B-bis, guasto AppArmor, agenti senza percorsi clienti, skill e memorie ripulite"
 date: "2026-11-25"
 author: "kos-domus"
-status: "ready"
+status: "processed"
 tags: ["security", "permissions", "mcp", "cron", "memory", "multi-agent", "troubleshooting", "tailscale", "configuration"]
 session_type: "hermes"
 client: ""

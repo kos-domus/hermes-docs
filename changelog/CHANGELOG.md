@@ -2,6 +2,19 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-26
+
+- **Added**: client-compartment-isolation (guides) — per-client Unix compartments for a single-user agent fleet: Samba "B-bis" share pattern (force user per share, no groups/ACL, own-IP EXCEPT in hosts allow), hardened globals, size-capped loop exchange volume, agent-side MCP/cron/git narrowing checklist, no-destruction migration discipline with sha256 manifests.
+- **Added**: samba-apparmor-denials (troubleshooting) — the `apparmor-profiles` package ships experimental Samba profiles in enforce with Debian paths on Ubuntu; symptom `NT_STATUS_ACCESS_DENIED` / iOS "unexpected error" (share enumeration via RPC blocked while plain smbclient logs in); fix = disable the 6 Samba profiles. Includes the macOS/iOS one-SMB-session-per-server-name gotcha.
+- **Added**: profile-memory-hygiene (concepts) — memory budget discipline (duplicate-paste failure: 29k chars against a ~2.2k budget), write_approval human-only boundary (auto-mode classifier correctly blocks programmatic approval), and generated-block overwrite semantics (edit the source memory card, then publish the package).
+- **Updated**: quick-commands (v3) — reserved built-in command names: `/ts` is Hermes' alias of `/timestamps`; plugin quick commands must pick non-colliding names.
+- **Updated**: skill-consolidation-pattern (v2) — skill size budget: above ~100k characters the agent only sees a preview; reference repair 99k→22k via lazy-loaded reference files.
+- **Sessions**: 1 processed (2026-11-25-separazione-compartimenti-samba-apparmor) — queue now 12/12 processed, 0 ready.
+- **Upstream check — no change**: GitHub stable unchanged **v0.23.4** (prerelease=false, published 2026-11-24T08:17:06Z; ingested 2026-11-25 as hermes-0234-gemini4-models-patch-release). Canary cadence intact: `canary.20261125T064800Z-v0.23.4` landed at 06:48Z, ~3min after yesterday's 07:45 CET (06:45Z) check — exactly as yesterday's block predicted; no 11-26 canary at this run's 06:45Z check (inside the historical 06:44–06:56Z tag window, expected to land after this run). Local unchanged **v0.23.3** (`caafe5389ae5`, "Update available"), 1 stable behind, 1,833 commits behind origin/main (measured post-fetch).
+- **Index**: docs/index.yaml regenerated (alphabetical-by-slug-per-category semantics preserved, zero reordering of existing entries, verified programmatically): doc_count 40→43; 43 doc files == 43 index entries; quick-commands → v3 and skill-consolidation-pattern → v2 entries bumped.
+- **Sources**: sessions/2026-11-25-separazione-compartimenti-samba-apparmor.md.
+- **Security**: gitleaks passed cleanly (no leaks detected).
+
 ## 2026-11-25
 
 - **Skip (sessions)**: 0 ready sessions (11/11 processed; newest session 2026-11-10 ingested 2026-11-11) — no session-derived docs today.

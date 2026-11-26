@@ -1,5 +1,5 @@
-generated_at: '2026-11-25'
-doc_count: 40
+generated_at: '2026-11-26'
+doc_count: 43
 categories:
 - getting-started
 - guides
@@ -34,6 +34,23 @@ docs:
   last_updated: '2026-06-05'
   version: 1
   hermes_version_min: 0.14.0
+- slug: client-compartment-isolation
+  title: Client Compartment Isolation for a Single-User Agent Fleet
+  category: guides
+  tags:
+  - security
+  - isolation
+  - samba
+  - mcp
+  - least-privilege
+  - file-permissions
+  - fleet
+  - profiles
+  - tailscale
+  path: docs/guides/client-compartment-isolation.md
+  last_updated: '2026-11-26'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: cron-script-wrapper-pattern
   title: Cron Script Wrapper Pattern
   category: guides
@@ -505,8 +522,8 @@ docs:
   - whatsapp
   - access-control
   path: docs/reference/quick-commands.md
-  last_updated: '2026-11-10'
-  version: 2
+  last_updated: '2026-11-26'
+  version: 3
   hermes_version_min: 0.22.0
 - slug: fleet-learner-architecture
   title: Fleet Learner Architecture
@@ -537,6 +554,20 @@ docs:
   last_updated: '2026-11-10'
   version: 4
   hermes_version_min: 0.14.0
+- slug: profile-memory-hygiene
+  title: Profile Memory Hygiene and Approval Boundaries
+  category: concepts
+  tags:
+  - memory
+  - profiles
+  - security
+  - approval
+  - maintenance
+  - concepts
+  path: docs/concepts/profile-memory-hygiene.md
+  last_updated: '2026-11-26'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: self-improvement-agent-safety
   title: Self-Improvement Agent Safety
   category: concepts
@@ -564,8 +595,8 @@ docs:
   - agent-design
   - maintenance
   path: docs/concepts/skill-consolidation-pattern.md
-  last_updated: '2026-05-28'
-  version: 1
+  last_updated: '2026-11-26'
+  version: 2
   hermes_version_min: 0.14.0
 - slug: codex-gpt55-errors
   title: Codex gpt-5.5 Errors
@@ -641,6 +672,21 @@ docs:
   last_updated: '2026-11-11'
   version: 6
   hermes_version_min: 0.14.0
+- slug: samba-apparmor-denials
+  title: Samba Shares Denied by apparmor-profiles Package (Ubuntu)
+  category: troubleshooting
+  tags:
+  - samba
+  - apparmor
+  - ubuntu
+  - smb
+  - file-sharing
+  - troubleshooting
+  - kernel-log
+  path: docs/troubleshooting/samba-apparmor-denials.md
+  last_updated: '2026-11-26'
+  version: 1
+  hermes_version_min: 0.23.0
 - slug: xai-oauth-remote-session
   title: xAI OAuth on Remote SSH Sessions
   category: troubleshooting

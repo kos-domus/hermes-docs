@@ -2,6 +2,14 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-27
+
+- **Skip (sessions)**: 0 ready sessions (12/12 processed; queue empty since the 2026-11-26 elaboration) — no session-derived docs today, no index churn (skip contract; doc_count 43, 43 doc files == 43 index entries re-verified).
+- **Upstream check — stable unchanged**: GitHub stable **v0.23.4** (prerelease=false, published 2026-11-24T08:17:06Z; ingested 2026-11-25 as hermes-0234-gemini4-models-patch-release); nothing newer in the paginated releases list or tags at 06:46Z. Canary cadence intact: `canary.20261126T064809Z-v0.23.4` tagged 06:48:09Z, ~3min after yesterday's 06:45Z check — exactly as yesterday's block predicted. **Tag-only canary**: no release page exists for the 11-26 canary (release-by-tag 404, ~24h post-tag) — same intermittent pattern as the 11-21/11-22 canaries (both 404), while 11-23/24/25 canaries got release pages ~1.4–2h post-tag; watch-only, not an installable channel. No 11-27 canary at this run's 06:46Z check (inside the historical 06:44–06:56Z tag window, expected to land after this run).
+- **Local**: unchanged v0.23.3 @ `caafe5389ae5` ("Update available"), 1 stable behind v0.23.4. Behind-main 1,833 → **2,230** commits (measured post-fetch, +397 in 24h — upstream hot); drift identity verified: behind-tag v0.23.4 (1,143) + main-past-tag (1,087) = behind-main (2,230).
+- **Sources**: none (session queue empty) — paginated releases list, release-by-tag 404 checks, `git ls-remote` tag scan, local repo measurement.
+- **Security**: gitleaks passed cleanly (no leaks detected).
+
 ## 2026-11-26
 
 - **Added**: client-compartment-isolation (guides) — per-client Unix compartments for a single-user agent fleet: Samba "B-bis" share pattern (force user per share, no groups/ACL, own-IP EXCEPT in hosts allow), hardened globals, size-capped loop exchange volume, agent-side MCP/cron/git narrowing checklist, no-destruction migration discipline with sha256 manifests.

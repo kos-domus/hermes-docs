@@ -1,5 +1,5 @@
-generated_at: '2026-11-26'
-doc_count: 43
+generated_at: '2026-11-28'
+doc_count: 44
 categories:
 - getting-started
 - guides
@@ -483,6 +483,27 @@ docs:
   last_updated: '2026-11-25'
   version: 1
   hermes_version_min: 0.23.4
+- slug: hermes-0235-osc757-resume-compaction-patch-release
+  title: Hermes Agent 0.23.5 OSC-757 Resume & Compaction Patch Release Reference
+  category: reference
+  tags:
+  - release-notes
+  - patch-release
+  - rollup
+  - osc757
+  - terminal-resume
+  - compaction
+  - read-file
+  - search-files
+  - plugins
+  - oauth
+  - solstice
+  - plugin-api
+  - profiles
+  path: docs/reference/hermes-0235-osc757-resume-compaction-patch-release.md
+  last_updated: '2026-11-28'
+  version: 1
+  hermes_version_min: 0.23.5
 - slug: mcp-server-setup
   title: MCP Server Setup Reference
   category: reference

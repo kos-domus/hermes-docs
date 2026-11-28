@@ -2,6 +2,16 @@
 
 Log of every Kos elaboration run on this repository.
 
+## 2026-11-28
+
+- **Skip (sessions)**: 0 ready sessions (12/12 processed; queue empty since the 2026-11-26 elaboration) — no session-derived docs today.
+- **Added**: hermes-0235-osc757-resume-compaction-patch-release (reference) — **NEW STABLE v0.23.5** (blind-window advance, published 2026-11-28T03:20:13Z, ~5.5h after yesterday's 07:48 run; release date November 27, 2026 per the body): patch rollup of the window since v0.23.4, measured at commit `a428f5344f77` — 338 merged PRs, 92 closed issues, 1,262 non-merge commits across 1,146 changed files (+57,989 / −5,346); compare-API cross-check: 1,277 total = 1,262 + 15 merges, files array capped at 300 (upstream's 1,146 authoritative); ~147% of the 0.23.4 window's merged-PR count. Deliberately-undocumented feature inventory captured: OSC 7577 program resume protocol (CLI/TUI), idle-gateway-chat background compaction on every route, read_file negative-offset tails + directory listing, search_files whole-answer indication, bounded default-plugins preflight before local gateway start, plugin OAuth redirect-URI pinning, Solstice provider moved to the stateless Interactions API, new plugin API surfaces (turn origin, session creation, cron scheduling, gateway silence helpers), dashboard "moving" notice, raw arrow keys in the pickers, profile rename/move/remove plugin-binding fixes.
+- **Upstream check — canary**: `canary.20261127T064803Z-v0.23.4` and `canary.20261128T064458Z-v0.23.5` both exist as tags (ls-remote). The 11-27 canary's release page is still 404 ~24h post-tag — tag-only pattern now 11-21/22/26/27 vs 11-23/24/25 (which got pages ~1.4–2h post-tag); intermittent, watch-only. The 11-28 canary is the FIRST on the v0.23.5 line, checked ~2min post-tag (404 expected at that age); yesterday's prediction confirmed (11-27 canary tagged 06:48:03Z, post-run as expected).
+- **Local**: unchanged v0.23.3 @ `caafe5389ae5` ("Update available"), now 2 stables behind (v0.23.4, v0.23.5). Behind-main 2,230 → **2,435** post-fetch (+205 in 24h); drift identity verified: behind-tag v0.23.5 (2,420) + main-past-tag (15) = behind-main (2,435); tag derefs to `a428f5344f77`, matching the release body's measured commit.
+- **Index**: docs/index.yaml targeted insert (zero reordering): doc_count 43→44, new entry after hermes-0234 in the version-ordered release lane; 44 doc files == 44 index entries; strict index↔frontmatter equality verified for all 44 docs (slug, title, category, tags, path, last_updated, version, hermes_version_min).
+- **Sources**: none (session queue empty) — upstream release body v0.23.5 + compare API + git ls-remote + local repo measurement.
+- **Security**: gitleaks passed cleanly (no leaks detected).
+
 ## 2026-11-27
 
 - **Skip (sessions)**: 0 ready sessions (12/12 processed; queue empty since the 2026-11-26 elaboration) — no session-derived docs today, no index churn (skip contract; doc_count 43, 43 doc files == 43 index entries re-verified).
